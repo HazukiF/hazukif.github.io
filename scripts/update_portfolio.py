@@ -82,16 +82,42 @@ def get_all_tickers(trades: pd.DataFrame) -> list:
 
 
 def fetch_prices(tickers: list, start_date: str) -> pd.DataFrame:
-    """Fetch historical daily close prices for all tickers."""
+    """Fetch historical daily close prices for all tickers with retry logic."""
     all_tickers = tickers + list(BENCHMARKS.values()) + [USD_JPY_TICKER]
-    data = yf.download(all_tickers, start=start_date, auto_adjust=True, progress=False)
 
-    # Handle single vs multi ticker return format
-    if isinstance(data.columns, pd.MultiIndex):
-        prices = data["Close"]
-    else:
-        prices = data[["Close"]]
-        prices.columns = all_tickers[:1]
+    prices = pd.DataFrame()
+
+    # Try bulk download first
+    for attempt in range(3):
+        try:
+            data = yf.download(all_tickers, start=start_date, auto_adjust=True, progress=False)
+            if isinstance(data.columns, pd.MultiIndex):
+                prices = data["Close"]
+            else:
+                prices = data[["Close"]]
+                prices.columns = all_tickers[:1]
+            break
+        except Exception as e:
+            print(f"  Bulk download attempt {attempt + 1} failed: {e}")
+            if attempt == 2:
+                print("  Bulk download failed, trying individual tickers...")
+
+    # Retry any tickers that are missing or empty
+    for ticker in all_tickers:
+        if ticker not in prices.columns or prices[ticker].dropna().empty:
+            print(f"  Retrying individual download for {ticker}...")
+            for attempt in range(2):
+                try:
+                    single = yf.download(ticker, start=start_date, auto_adjust=True, progress=False)
+                    if not single.empty:
+                        if isinstance(single.columns, pd.MultiIndex):
+                            prices[ticker] = single["Close"][ticker]
+                        else:
+                            prices[ticker] = single["Close"]
+                        print(f"  ✓ Got {ticker} on retry")
+                        break
+                except Exception:
+                    pass
 
     prices = prices.ffill().bfill()
     return prices
@@ -138,9 +164,15 @@ def calculate_holdings(positions: pd.DataFrame, prices: pd.DataFrame, fx_rate: f
     for _, pos in positions.iterrows():
         ticker = pos["ticker"]
         if ticker not in prices.columns:
+            print(f"  Skipping {ticker}: not in price data")
             continue
 
-        current_price = prices[ticker].dropna().iloc[-1]
+        ticker_prices = prices[ticker].dropna()
+        if len(ticker_prices) == 0:
+            print(f"  Skipping {ticker}: no price data available")
+            continue
+
+        current_price = ticker_prices.iloc[-1]
         avg_cost = pos["avg_cost"]
         shares = pos["shares"]
         currency = pos["currency"]
@@ -237,7 +269,10 @@ def calculate_daily_nav(trades: pd.DataFrame, prices: pd.DataFrame, fx_rate_seri
         for t, shares in position_shares.items():
             if shares <= 0 or t not in prices.columns:
                 continue
-            price = prices[t].asof(date)
+            price_series = prices[t].dropna()
+            if len(price_series) == 0:
+                continue
+            price = price_series.asof(date)
             if pd.isna(price):
                 continue
 
