@@ -483,7 +483,7 @@ th.sorted-asc .sort-arrow, th.sorted-desc .sort-arrow { opacity: 1; color: var(-
 .allocation-grid {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem 3rem;
+    padding: 2.5rem 2rem 3rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
@@ -594,7 +594,7 @@ th.sorted-asc .sort-arrow, th.sorted-desc .sort-arrow { opacity: 1; color: var(-
 .timeline-desc { font-size:0.78rem; color:var(--text-primary); line-height:1.5; }
 .timeline-desc-sub { font-size:0.7rem; color:var(--text-tertiary); }
 
-.about-contact { max-width:1200px; margin:0 auto; padding:0 2rem 3rem; display:flex; gap:2.5rem; }
+.about-contact { max-width:1200px; margin:0 auto; padding:2.5rem 2rem 3rem; display:flex; gap:2.5rem; }
 
 .contact-link {
     font-size: 0.75rem;
