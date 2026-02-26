@@ -34,12 +34,13 @@
         <p class="about-page-subtitle animate-in delay-1">サイボーグ投資家</p>
 
         <div class="philosophy-intro animate-in delay-2">
-            <p class="about-text">This portfolio operates on a simple premise: neither pure quantitative models nor pure fundamental analysis produce the best risk-adjusted returns in cross-border investing. The strongest edge comes from knowing exactly where the human brain outperforms the machine — and where it doesn't.</p>
-            <p class="about-text" style="margin-top: 1rem;">What follows is a four-phase investment process that alternates between automated computation and irreplaceable human judgment. The machine handles data aggregation, covariance estimation, and position sizing. The human handles accounting forensics, geopolitical interpretation, and the identification of structural mispricings that no algorithm can detect.</p>
+            <p class="about-text" data-i18n="philosophy-intro-1">This portfolio operates on a simple premise: neither pure quantitative models nor pure fundamental analysis produce the best risk-adjusted returns in cross-border investing. The strongest edge comes from knowing exactly where the human brain outperforms the machine — and where it doesn't.</p>
+            <p class="about-text" style="margin-top: 1rem;" data-i18n="philosophy-intro-2">What follows is a four-phase investment process that alternates between automated computation and irreplaceable human judgment. The machine handles data aggregation, covariance estimation, and position sizing. The human handles accounting forensics, geopolitical interpretation, and the identification of structural mispricings that no algorithm can detect.</p>
         </div>
 
         <hr class="divider" style="margin: 3rem 0;">
 
+        <!-- Phase 1 -->
         <div class="phase-block animate-in delay-2">
             <div class="phase-header">
                 <div class="phase-number">Phase 1</div>
@@ -47,15 +48,16 @@
                 <div class="phase-tag machine-tag">Machine</div>
             </div>
             <div class="phase-body">
-                <p>The investment universe spans 40–50 cross-border equities across the TSE and US exchanges. Manually monitoring prices, volatilities, and valuations across this universe is not scalable — and introduces behavioral bias before any analysis even begins.</p>
+                <p data-i18n="phase1-body">The investment universe spans 40–50 cross-border equities across the TSE and US exchanges. Manually monitoring prices, volatilities, and valuations across this universe is not scalable — and introduces behavioral bias before any analysis even begins.</p>
                 <div class="phase-process">
-                    <div class="process-step"><div class="process-label">Input</div><div class="process-desc">A Python pipeline pulls daily closing prices and valuation metrics (P/B, P/E, EV/EBITDA) for the full ticker universe via automated API calls.</div></div>
-                    <div class="process-step"><div class="process-label">Process</div><div class="process-desc">The script calculates rolling standard and downside volatility, then flags any company whose Price-to-Book ratio drops below a predefined threshold — for example, below 1.0 on the TSE.</div></div>
-                    <div class="process-step"><div class="process-label">Output</div><div class="process-desc">A shortlist of 3–5 companies that warrant human attention this week. No news, no charts, no noise — just the numbers.</div></div>
+                    <div class="process-step"><div class="process-label">Input</div><div class="process-desc" data-i18n="phase1-input">A Python pipeline pulls daily closing prices and valuation metrics (P/B, P/E, EV/EBITDA) for the full ticker universe via automated API calls.</div></div>
+                    <div class="process-step"><div class="process-label">Process</div><div class="process-desc" data-i18n="phase1-process">The script calculates rolling standard and downside volatility, then flags any company whose Price-to-Book ratio drops below a predefined threshold — for example, below 1.0 on the TSE.</div></div>
+                    <div class="process-step"><div class="process-label">Output</div><div class="process-desc" data-i18n="phase1-output">A shortlist of 3–5 companies that warrant human attention this week. No news, no charts, no noise — just the numbers.</div></div>
                 </div>
             </div>
         </div>
 
+        <!-- Phase 2 -->
         <div class="phase-block animate-in delay-3">
             <div class="phase-header">
                 <div class="phase-number">Phase 2</div>
@@ -63,14 +65,15 @@
                 <div class="phase-tag hybrid-tag">Hybrid</div>
             </div>
             <div class="phase-body">
-                <p>A 200-page Yuho (有価証券報告書) is a massive time sink, even with strong Japanese fluency. Dense corporate prose and kanji-heavy management narratives slow down analysis for any heritage speaker. The cyborg approach bypasses the narrative entirely and goes straight to the ledger.</p>
+                <p data-i18n="phase2-body">A 200-page Yuho (有価証券報告書) is a massive time sink, even with strong Japanese fluency. Dense corporate prose and kanji-heavy management narratives slow down analysis for any heritage speaker. The cyborg approach bypasses the narrative entirely and goes straight to the ledger.</p>
                 <div class="phase-process">
-                    <div class="process-step"><div class="process-label">Machine</div><div class="process-desc">Raw, unadjusted J-GAAP and US-GAAP ledgers are exported directly from data platforms into structured spreadsheets. No PDFs, no narrative — just the accounting lines.</div></div>
-                    <div class="process-step"><div class="process-label">Human</div><div class="process-desc">With Boki-level accounting vocabulary and direct ledger access, the reading barrier vanishes. Focus goes exclusively to the lines that matter: Retained Earnings (利益剰余金), Goodwill (のれん), and Cross-Shareholdings (持ち合い株).</div></div>
+                    <div class="process-step"><div class="process-label">Machine</div><div class="process-desc" data-i18n="phase2-machine">Raw, unadjusted J-GAAP and US-GAAP ledgers are exported directly from data platforms into structured spreadsheets. No PDFs, no narrative — just the accounting lines.</div></div>
+                    <div class="process-step"><div class="process-label">Human</div><div class="process-desc" data-i18n="phase2-human">With Boki-level accounting vocabulary and direct ledger access, the reading barrier vanishes. Focus goes exclusively to the lines that matter: Retained Earnings (利益剰余金), Goodwill (のれん), and Cross-Shareholdings (持ち合い株).</div></div>
                 </div>
             </div>
         </div>
 
+        <!-- Phase 3 -->
         <div class="phase-block animate-in delay-3">
             <div class="phase-header">
                 <div class="phase-number">Phase 3</div>
@@ -78,14 +81,15 @@
                 <div class="phase-tag human-tag">Human</div>
             </div>
             <div class="phase-body">
-                <p>This is the one phase where the machine is completely shut off. No algorithm can interpret that the Bank of Japan's yield curve control policy is artificially depressing a specific sector. No model understands that a Japanese industrial company is sandbagging its earnings guidance to manage domestic expectations.</p>
+                <p data-i18n="phase3-body">This is the one phase where the machine is completely shut off. No algorithm can interpret that the Bank of Japan's yield curve control policy is artificially depressing a specific sector. No model understands that a Japanese industrial company is sandbagging its earnings guidance to manage domestic expectations.</p>
                 <div class="phase-process">
-                    <div class="process-step"><div class="process-label">Analysis</div><div class="process-desc">The exported ledgers feed a 3-statement DCF model. Aggressive J-GAAP goodwill amortization is added back to find true Free Cash Flow. WACC is adjusted based on a geopolitical read of US-Japan trade dynamics.</div></div>
-                    <div class="process-step"><div class="process-label">Output</div><div class="process-desc">An intrinsic value estimate becomes a Black-Litterman View (<em>Q</em>), paired with a confidence parameter (<em>Ω</em>) calibrated to the strength of the accounting adjustment. Rock-solid forensics get high confidence; speculative macro reads get low.</div></div>
+                    <div class="process-step"><div class="process-label">Analysis</div><div class="process-desc" data-i18n="phase3-analysis">The exported ledgers feed a 3-statement DCF model. Aggressive J-GAAP goodwill amortization is added back to find true Free Cash Flow. WACC is adjusted based on a geopolitical read of US-Japan trade dynamics.</div></div>
+                    <div class="process-step"><div class="process-label">Output</div><div class="process-desc" data-i18n="phase3-output">An intrinsic value estimate becomes a Black-Litterman View (<em>Q</em>), paired with a confidence parameter (<em>Ω</em>) calibrated to the strength of the accounting adjustment. Rock-solid forensics get high confidence; speculative macro reads get low.</div></div>
                 </div>
             </div>
         </div>
 
+        <!-- Phase 4 -->
         <div class="phase-block animate-in delay-4">
             <div class="phase-header">
                 <div class="phase-number">Phase 4</div>
@@ -93,11 +97,11 @@
                 <div class="phase-tag machine-tag">Machine</div>
             </div>
             <div class="phase-body">
-                <p>A brilliant thesis without disciplined sizing is how portfolios blow up. The human generates the conviction; the machine acts as risk manager, enforcing mathematical constraints that override emotional attachment to any single position.</p>
+                <p data-i18n="phase4-body">A brilliant thesis without disciplined sizing is how portfolios blow up. The human generates the conviction; the machine acts as risk manager, enforcing mathematical constraints that override emotional attachment to any single position.</p>
                 <div class="phase-process">
-                    <div class="process-step"><div class="process-label">Input</div><div class="process-desc">The View (<em>Q</em>) feeds into the Python optimization engine built during the EDHEC Investment Management specialization.</div></div>
-                    <div class="process-step"><div class="process-label">Process</div><div class="process-desc">The optimizer recalculates the Downside-ERC anchor with latest data, applies Ledoit-Wolf shrinkage (τ = 0.5) to the covariance matrix, and runs the Black-Litterman posterior to blend market-implied returns with the fundamental view.</div></div>
-                    <div class="process-step"><div class="process-label">Output</div><div class="process-desc">A maximum portfolio weight — not a target, a ceiling. The machine might say: "This stock is undervalued, but it has severe negative skewness and high correlation to existing holdings. Maximum allocation: 4.2%."</div></div>
+                    <div class="process-step"><div class="process-label">Input</div><div class="process-desc" data-i18n="phase4-input">The View (<em>Q</em>) feeds into the Python optimization engine built during the EDHEC Investment Management specialization.</div></div>
+                    <div class="process-step"><div class="process-label">Process</div><div class="process-desc" data-i18n="phase4-process">The optimizer recalculates the Downside-ERC anchor with latest data, applies Ledoit-Wolf shrinkage (τ = 0.5) to the covariance matrix, and runs the Black-Litterman posterior to blend market-implied returns with the fundamental view.</div></div>
+                    <div class="process-step"><div class="process-label">Output</div><div class="process-desc" data-i18n="phase4-output">A maximum portfolio weight — not a target, a ceiling. The machine might say: "This stock is undervalued, but it has severe negative skewness and high correlation to existing holdings. Maximum allocation: 4.2%."</div></div>
                 </div>
             </div>
         </div>
@@ -107,16 +111,16 @@
         <div class="animate-in delay-4">
             <div class="about-section-label" data-i18n="roadmap-label">Roadmap</div>
             <div class="future-grid">
-                <div class="future-card"><div class="future-title">RAG-Powered Filing Analysis</div><p class="future-desc">An LLM pipeline connected to the EDINET API to automatically extract specific accounting variables from Yuho filings, bypassing the kanji reading bottleneck entirely and feeding structured data directly into valuation models.</p></div>
-                <div class="future-card"><div class="future-title">Geopolitical Hierarchical Risk Parity</div><p class="future-desc">Replacing the standard covariance matrix with HRP clustering that incorporates supply chain dependencies and geographic revenue exposure — ensuring a single geopolitical shock can't cascade across ostensibly uncorrelated positions.</p></div>
-                <div class="future-card"><div class="future-title">Regime Detection</div><p class="future-desc">A Hidden Markov Model monitoring macro indicators (USD/JPY velocity, BOJ signals, VIX) to dynamically adjust shrinkage intensity and risk metric selection between stable and crisis market environments.</p></div>
-                <div class="future-card"><div class="future-title">Accounting Arbitrage Library</div><p class="future-desc">A proprietary Python library automating J-GAAP and US-GAAP adjustments across the full investment universe — recalculating intrinsic values for all 40+ tickers simultaneously and generating a complete Black-Litterman view matrix in seconds.</p></div>
+                <div class="future-card"><div class="future-title" data-i18n="future-rag-title">RAG-Powered Filing Analysis</div><p class="future-desc" data-i18n="future-rag-desc">An LLM pipeline connected to the EDINET API to automatically extract specific accounting variables from Yuho filings, bypassing the kanji reading bottleneck entirely and feeding structured data directly into valuation models.</p></div>
+                <div class="future-card"><div class="future-title" data-i18n="future-hrp-title">Geopolitical Hierarchical Risk Parity</div><p class="future-desc" data-i18n="future-hrp-desc">Replacing the standard covariance matrix with HRP clustering that incorporates supply chain dependencies and geographic revenue exposure — ensuring a single geopolitical shock can't cascade across ostensibly uncorrelated positions.</p></div>
+                <div class="future-card"><div class="future-title" data-i18n="future-regime-title">Regime Detection</div><p class="future-desc" data-i18n="future-regime-desc">A Hidden Markov Model monitoring macro indicators (USD/JPY velocity, BOJ signals, VIX) to dynamically adjust shrinkage intensity and risk metric selection between stable and crisis market environments.</p></div>
+                <div class="future-card"><div class="future-title" data-i18n="future-lib-title">Accounting Arbitrage Library</div><p class="future-desc" data-i18n="future-lib-desc">A proprietary Python library automating J-GAAP and US-GAAP adjustments across the full investment universe — recalculating intrinsic values for all 40+ tickers simultaneously and generating a complete Black-Litterman view matrix in seconds.</p></div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-left" data-i18n="footer-disclaimer">Shadow portfolio for educational purposes only. Not investment advice.</div>
+        <div class="footer-left" data-i18n="footer-short">Shadow portfolio for educational purposes only. Not investment advice.</div>
         <div class="footer-right">自主運用ポートフォリオ</div>
     </footer>
 </body>
