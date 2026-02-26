@@ -1,0 +1,13 @@
+date,ticker,action,shares,price,currency,notes
+2025-03-03,6501.T,BUY,100,3180,JPY,Hitachi - governance reform play
+2025-03-03,8306.T,BUY,200,1245,JPY,MUFG - rate normalization thesis
+2025-03-03,AAPL,BUY,15,178.30,USD,Core US tech position
+2025-03-10,6758.T,BUY,25,13200,JPY,Sony - entertainment + semicon
+2025-03-10,MSFT,BUY,8,374.20,USD,Cloud + AI exposure
+2025-03-17,8035.T,BUY,15,22400,JPY,Tokyo Electron - semicon capex cycle
+2025-03-24,7203.T,BUY,120,2680,JPY,Toyota - EV transition undervalued
+2025-04-01,9984.T,BUY,40,8750,JPY,SoftBank - AI investment vehicle
+2025-04-07,4063.T,BUY,60,5080,JPY,Shin-Etsu - materials moat
+2025-04-14,GOOGL,BUY,20,141.80,USD,Alphabet - search + cloud
+2025-04-21,2914.T,BUY,80,4120,JPY,Japan Tobacco - dividend + pricing power
+2025-05-01,V,BUY,10,262.40,USD,Visa - payments infrastructure
