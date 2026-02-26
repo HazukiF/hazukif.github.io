@@ -5,6 +5,9 @@ Reads trades.csv, pulls current and historical prices via yfinance,
 calculates portfolio metrics, and outputs data/portfolio.json for
 the website frontend to consume.
 
+Primary currency: JPY (Japanese Yen)
+USD positions are converted to JPY at current exchange rate.
+
 Run manually:   python scripts/update_portfolio.py
 Run via CI:     GitHub Actions runs this on a daily cron schedule
 """
@@ -20,9 +23,9 @@ import yfinance as yf
 
 # ── Configuration ──────────────────────────────────────────────
 
-STARTING_CAPITAL = 100_000  # USD
-RISK_FREE_RATE = 0.05       # annualized, for Sharpe calculation
-USD_JPY_TICKER = "JPY=X"    # USD/JPY exchange rate
+STARTING_CAPITAL = 15_000_000  # JPY
+RISK_FREE_RATE = 0.05          # annualized, for Sharpe calculation
+USD_JPY_TICKER = "JPY=X"       # USD/JPY exchange rate
 
 BENCHMARKS = {
     "Nikkei 225": "^N225",
@@ -72,7 +75,6 @@ def get_fx_rate() -> float:
             return rate
     except Exception:
         pass
-    # Fallback
     return 150.0
 
 
@@ -158,7 +160,7 @@ def build_positions(trades: pd.DataFrame) -> pd.DataFrame:
 
 
 def calculate_holdings(positions: pd.DataFrame, prices: pd.DataFrame, fx_rate: float) -> list:
-    """Calculate current value and return for each position."""
+    """Calculate current value and return for each position. All values in JPY."""
     holdings = []
 
     for _, pos in positions.iterrows():
@@ -177,15 +179,16 @@ def calculate_holdings(positions: pd.DataFrame, prices: pd.DataFrame, fx_rate: f
         shares = pos["shares"]
         currency = pos["currency"]
 
-        # Calculate values in USD
+        # Calculate values in JPY (primary currency)
         if currency == "JPY":
-            cost_usd = (avg_cost * shares) / fx_rate
-            value_usd = (current_price * shares) / fx_rate
+            cost_jpy = avg_cost * shares
+            value_jpy = current_price * shares
             display_cost = f"¥{avg_cost:,.0f}"
             display_current = f"¥{current_price:,.0f}"
         else:
-            cost_usd = avg_cost * shares
-            value_usd = current_price * shares
+            # USD positions: convert to JPY
+            cost_jpy = avg_cost * shares * fx_rate
+            value_jpy = current_price * shares * fx_rate
             display_cost = f"${avg_cost:,.2f}"
             display_current = f"${current_price:,.2f}"
 
@@ -208,13 +211,13 @@ def calculate_holdings(positions: pd.DataFrame, prices: pd.DataFrame, fx_rate: f
             "display_cost": display_cost,
             "display_current": display_current,
             "currency": currency,
-            "cost_usd": round(cost_usd, 2),
-            "value_usd": round(value_usd, 2),
+            "cost_jpy": round(cost_jpy, 0),
+            "value_jpy": round(value_jpy, 0),
             "return_pct": round(pct_return, 2),
         })
 
     # Sort by value descending
-    holdings.sort(key=lambda x: x["value_usd"], reverse=True)
+    holdings.sort(key=lambda x: x["value_jpy"], reverse=True)
     return holdings
 
 
@@ -222,7 +225,7 @@ def calculate_holdings(positions: pd.DataFrame, prices: pd.DataFrame, fx_rate: f
 
 def calculate_daily_nav(trades: pd.DataFrame, prices: pd.DataFrame, fx_rate_series: pd.Series) -> pd.Series:
     """
-    Calculate daily portfolio NAV (net asset value) from inception.
+    Calculate daily portfolio NAV in JPY from inception.
     Tracks cash + holdings value each day.
     """
     tickers = trades["ticker"].unique()
@@ -230,11 +233,10 @@ def calculate_daily_nav(trades: pd.DataFrame, prices: pd.DataFrame, fx_rate_seri
     inception = trades["date"].min()
     dates = dates[dates >= pd.Timestamp(inception)]
 
-    # Build position history: shares held per ticker per day
     nav_series = []
 
     for date in dates:
-        cash = STARTING_CAPITAL
+        cash_jpy = STARTING_CAPITAL
         holdings_value = 0
 
         # Process all trades up to this date
@@ -246,22 +248,25 @@ def calculate_daily_nav(trades: pd.DataFrame, prices: pd.DataFrame, fx_rate_seri
             if t not in position_shares:
                 position_shares[t] = 0
 
-            cost = trade["shares"] * trade["price"]
+            cost_in_native = trade["shares"] * trade["price"]
+
             if trade["currency"] == "JPY":
-                # Convert trade cost to USD using rate at trade date
+                cost_jpy_trade = cost_in_native
+            else:
+                # Convert USD cost to JPY at trade date
                 fx_at_trade = fx_rate_series.asof(trade["date"])
                 if pd.isna(fx_at_trade) or fx_at_trade <= 0:
                     fx_at_trade = 150.0
-                cost = cost / fx_at_trade
+                cost_jpy_trade = cost_in_native * fx_at_trade
 
             if trade["action"] == "BUY":
                 position_shares[t] = position_shares[t] + trade["shares"]
-                cash -= cost
+                cash_jpy -= cost_jpy_trade
             elif trade["action"] == "SELL":
                 position_shares[t] = position_shares[t] - trade["shares"]
-                cash += cost
+                cash_jpy += cost_jpy_trade
 
-        # Value holdings at current date's prices
+        # Value holdings at current date's prices (all in JPY)
         fx_today = fx_rate_series.asof(date)
         if pd.isna(fx_today) or fx_today <= 0:
             fx_today = 150.0
@@ -278,11 +283,11 @@ def calculate_daily_nav(trades: pd.DataFrame, prices: pd.DataFrame, fx_rate_seri
 
             currency = trades[trades["ticker"] == t]["currency"].iloc[0]
             if currency == "JPY":
-                holdings_value += (price * shares) / fx_today
-            else:
                 holdings_value += price * shares
+            else:
+                holdings_value += price * shares * fx_today
 
-        total = cash + holdings_value
+        total = cash_jpy + holdings_value
         nav_series.append({"date": date, "nav": total})
 
     nav_df = pd.DataFrame(nav_series).set_index("date")
@@ -322,7 +327,7 @@ def calculate_metrics(nav: pd.Series) -> dict:
         "sharpe_ratio": round(sharpe, 2),
         "max_drawdown": round(max_drawdown, 2),
         "max_drawdown_date": max_dd_date.strftime("%b %Y") if not pd.isna(max_dd_date) else "",
-        "current_nav": round(nav.iloc[-1], 2),
+        "current_nav": round(nav.iloc[-1], 0),
     }
 
 
@@ -347,7 +352,7 @@ def calculate_allocations(holdings: list, total_value: float) -> dict:
     sector = {}
 
     for h in holdings:
-        weight = h["value_usd"] / total_value if total_value > 0 else 0
+        weight = h["value_jpy"] / total_value if total_value > 0 else 0
 
         # Geography
         country = "Japan" if h["currency"] == "JPY" else "United States"
@@ -415,22 +420,21 @@ def main():
     print("Calculating holdings...")
     holdings = calculate_holdings(positions, prices, fx_rate)
 
-    total_invested = sum(h["value_usd"] for h in holdings)
-    total_value = STARTING_CAPITAL  # Will be overwritten by NAV
+    total_invested_jpy = sum(h["value_jpy"] for h in holdings)
 
     print("Calculating daily NAV...")
     nav = calculate_daily_nav(trades, prices, fx_series)
-    total_value = nav.iloc[-1]
+    total_value_jpy = nav.iloc[-1]
 
-    cash_usd = total_value - total_invested
-    cash_pct = (cash_usd / total_value) * 100 if total_value > 0 else 0
+    cash_jpy = total_value_jpy - total_invested_jpy
+    cash_pct = (cash_jpy / total_value_jpy) * 100 if total_value_jpy > 0 else 0
 
     print("Calculating metrics...")
     metrics = calculate_metrics(nav)
     benchmarks = calculate_benchmark_returns(prices, inception_date)
 
     print("Calculating allocations...")
-    allocations = calculate_allocations(holdings, total_value)
+    allocations = calculate_allocations(holdings, total_value_jpy)
     allocations["geography"]["Cash"] = round(cash_pct, 1)
 
     print("Building chart data...")
@@ -438,15 +442,16 @@ def main():
 
     # Calculate weight for each holding
     for h in holdings:
-        h["weight"] = round((h["value_usd"] / total_value) * 100, 1) if total_value > 0 else 0
+        h["weight"] = round((h["value_jpy"] / total_value_jpy) * 100, 1) if total_value_jpy > 0 else 0
 
     # ── Assemble output ──
     output = {
         "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "inception_date": inception_date,
         "starting_capital": STARTING_CAPITAL,
+        "fx_rate": round(fx_rate, 2),
         "summary": {
-            "portfolio_value": round(total_value, 2),
+            "portfolio_value": round(total_value_jpy, 0),
             "total_return": metrics["total_return"],
             "ytd_return": metrics["ytd_return"],
             "sharpe_ratio": metrics["sharpe_ratio"],
@@ -455,7 +460,7 @@ def main():
             "positions_count": len(holdings),
             "jp_count": sum(1 for h in holdings if h["currency"] == "JPY"),
             "us_count": sum(1 for h in holdings if h["currency"] == "USD"),
-            "cash_usd": round(cash_usd, 2),
+            "cash_jpy": round(cash_jpy, 0),
             "cash_pct": round(cash_pct, 1),
         },
         "benchmarks": benchmarks,
@@ -470,7 +475,8 @@ def main():
         json.dump(output, f, indent=2)
 
     print(f"\nPortfolio JSON written to {OUTPUT_PATH}")
-    print(f"Portfolio value: ${total_value:,.2f}")
+    print(f"Portfolio value: ¥{total_value_jpy:,.0f}")
+    print(f"USD/JPY: {fx_rate:.2f}")
     print(f"Total return: {metrics['total_return']:+.2f}%")
     print(f"Sharpe ratio: {metrics['sharpe_ratio']:.2f}")
     print(f"Max drawdown: {metrics['max_drawdown']:.2f}%")
