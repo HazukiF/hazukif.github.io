@@ -7,25 +7,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
 
     <header class="animate-in">
         <a href="index.html" class="site-title">Hazuki <span class="jp">シャドウ・ポートフォリオ</span></a>
-        <nav>
-            <a href="index.html" class="active">Portfolio</a>
-            <a href="philosophy.html">Philosophy</a>
-            <a href="trades.html">Trades</a>
-            <a href="research.html">Research</a>
-            <a href="about.html">About</a>
-        </nav>
+        <div class="header-right">
+            <nav>
+                <a href="index.html" class="active" data-i18n="nav-portfolio">Portfolio</a>
+                <a href="philosophy.html" data-i18n="nav-philosophy">Philosophy</a>
+                <a href="trades.html" data-i18n="nav-trades">Trades</a>
+                <a href="research.html" data-i18n="nav-research">Research</a>
+                <a href="about.html" data-i18n="nav-about">About</a>
+            </nav>
+            <div class="site-controls">
+                <button class="control-btn" id="lang-toggle-btn" title="Toggle language">JP</button>
+                <button class="control-btn" id="dark-mode-btn" title="Toggle dark mode">☾</button>
+            </div>
+        </div>
     </header>
 
     <hr class="divider">
 
-    <!-- Portfolio Summary -->
     <section class="portfolio-hero animate-in delay-1">
-        <div class="portfolio-label">Portfolio Value <span class="portfolio-label-jp">運用総額</span></div>
+        <div class="portfolio-label" data-i18n="portfolio-label">Portfolio Value</div>
         <div class="portfolio-hero-inner">
             <div class="portfolio-value" id="portfolio-value">—</div>
             <div class="portfolio-return" id="portfolio-return">—</div>
@@ -33,39 +39,37 @@
         <div class="portfolio-meta" id="portfolio-meta">Loading...</div>
     </section>
 
-    <!-- Key Stats -->
     <div class="stats-row animate-in delay-2">
         <div class="stat-card">
-            <div class="stat-label">YTD Return</div>
+            <div class="stat-label" data-i18n="stat-ytd-label">YTD Return</div>
             <div class="stat-value" id="stat-ytd">—</div>
             <div class="stat-sub" id="stat-ytd-bench">—</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Sharpe Ratio</div>
+            <div class="stat-label" data-i18n="stat-sharpe-label">Sharpe Ratio</div>
             <div class="stat-value" id="stat-sharpe">—</div>
-            <div class="stat-sub">Annualized</div>
+            <div class="stat-sub" data-i18n="stat-sharpe-sub">Annualized</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Max Drawdown</div>
+            <div class="stat-label" data-i18n="stat-drawdown-label">Max Drawdown</div>
             <div class="stat-value" id="stat-drawdown">—</div>
             <div class="stat-sub" id="stat-drawdown-date">—</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Positions</div>
+            <div class="stat-label" data-i18n="stat-positions-label">Positions</div>
             <div class="stat-value" id="stat-positions">—</div>
             <div class="stat-sub" id="stat-positions-breakdown">—</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Cash</div>
+            <div class="stat-label" data-i18n="stat-cash-label">Cash</div>
             <div class="stat-value" id="stat-cash-pct">—</div>
             <div class="stat-sub" id="stat-cash-usd">—</div>
         </div>
     </div>
 
-    <!-- Performance Chart -->
     <section class="chart-section animate-in delay-3">
         <div class="chart-header">
-            <div class="chart-title">Cumulative Return <small>累積リターン</small></div>
+            <div class="chart-title" data-i18n="chart-title">Cumulative Return</div>
             <div class="time-filters">
                 <button class="time-btn" data-range="1m">1M</button>
                 <button class="time-btn" data-range="3m">3M</button>
@@ -86,15 +90,14 @@
 
     <hr class="divider">
 
-    <!-- Holdings Table -->
     <section class="holdings-section animate-in delay-4">
         <div class="holdings-header">
-            <div class="holdings-title">Current Holdings <small>保有銘柄</small></div>
+            <div class="holdings-title" data-i18n="holdings-title">Current Holdings</div>
             <div class="holdings-controls">
                 <div class="filter-group" id="geo-filters">
-                    <button class="filter-btn active" data-geo="all">All</button>
-                    <button class="filter-btn" data-geo="JP">Japan</button>
-                    <button class="filter-btn" data-geo="US">US</button>
+                    <button class="filter-btn active" data-geo="all" data-i18n="filter-all">All</button>
+                    <button class="filter-btn" data-geo="JP" data-i18n="filter-japan">Japan</button>
+                    <button class="filter-btn" data-geo="US" data-i18n="filter-us">US</button>
                 </div>
                 <div class="holdings-count" id="holdings-count">—</div>
             </div>
@@ -102,54 +105,46 @@
         <table>
             <thead>
                 <tr>
-                    <th class="sortable" data-sort="ticker">Ticker <span class="sort-arrow"></span></th>
-                    <th class="sortable" data-sort="sector">Sector <span class="sort-arrow"></span></th>
-                    <th class="sortable" data-sort="weight">Weight <span class="sort-arrow"></span></th>
-                    <th>Avg Cost</th>
-                    <th>Current</th>
-                    <th class="sortable sorted-desc" data-sort="return_pct">Return <span class="sort-arrow">↓</span></th>
+                    <th class="sortable" data-sort="ticker"><span data-i18n="th-ticker">Ticker</span> <span class="sort-arrow"></span></th>
+                    <th class="sortable" data-sort="sector"><span data-i18n="th-sector">Sector</span> <span class="sort-arrow"></span></th>
+                    <th class="sortable" data-sort="weight"><span data-i18n="th-weight">Weight</span> <span class="sort-arrow"></span></th>
+                    <th data-i18n="th-avg-cost">Avg Cost</th>
+                    <th data-i18n="th-current">Current</th>
+                    <th class="sortable sorted-desc" data-sort="return_pct"><span data-i18n="th-return">Return</span> <span class="sort-arrow">↓</span></th>
                 </tr>
             </thead>
             <tbody id="holdings-body">
-                <tr><td colspan="6" style="text-align:center; color:var(--text-tertiary); padding:2rem;">Loading portfolio data...</td></tr>
+                <tr><td colspan="6" style="text-align:center; color:var(--text-tertiary); padding:2rem;">Loading...</td></tr>
             </tbody>
         </table>
     </section>
 
     <hr class="divider">
 
-    <!-- Allocation Breakdown -->
     <section class="allocation-grid">
         <div class="allocation-card">
-            <div class="allocation-card-title">Geography <span class="jp" style="font-size:0.6rem; font-weight:300; color:var(--text-tertiary);">地域配分</span></div>
+            <div class="allocation-card-title" data-i18n="geo-label">Geography</div>
             <div id="geo-allocation">Loading...</div>
         </div>
         <div class="allocation-card">
-            <div class="allocation-card-title">Sector <span class="jp" style="font-size:0.6rem; font-weight:300; color:var(--text-tertiary);">セクター配分</span></div>
+            <div class="allocation-card-title" data-i18n="sector-label">Sector</div>
             <div id="sector-allocation">Loading...</div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-left">Shadow portfolio for educational purposes only. Not investment advice.<br>Data refreshed daily via automated pipeline. Past performance does not indicate future results.</div>
+        <div class="footer-left" data-i18n="footer-disclaimer">Shadow portfolio for educational purposes only. Not investment advice.<br>Data refreshed daily via automated pipeline. Past performance does not indicate future results.</div>
         <div class="footer-right">自主運用ポートフォリオ</div>
     </footer>
 
     <script>
-    // ══════════════════════════════════════════════════
-    // Portfolio Frontend — Interactive
-    // ══════════════════════════════════════════════════
-
     let chartInstance = null;
     let portfolioData = null;
     let currentSort = { key: 'weight', direction: 'desc' };
     let currentGeoFilter = 'all';
 
-    // ── Utilities ──
-
-    function formatCurrency(value) {
-        return '$' + value.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    function formatYen(value) {
+        return '¥' + Math.round(value).toLocaleString('ja-JP');
     }
 
     function formatPct(value, showSign = true) {
@@ -157,41 +152,30 @@
         return (showSign ? sign : '') + value.toFixed(2) + '%';
     }
 
-    function setReturnClass(element, value) {
-        element.classList.remove('positive', 'negative', 'positive-cell', 'negative-cell');
-        if (element.tagName === 'TD') {
-            element.classList.add(value >= 0 ? 'positive-cell' : 'negative-cell');
-        } else {
-            element.classList.add(value >= 0 ? 'positive' : 'negative');
-        }
+    function setReturnClass(el, value) {
+        el.classList.remove('positive','negative','positive-cell','negative-cell');
+        if (el.tagName === 'TD') el.classList.add(value >= 0 ? 'positive-cell' : 'negative-cell');
+        else el.classList.add(value >= 0 ? 'positive' : 'negative');
     }
-
-    // ── Summary ──
 
     function renderSummary(data) {
         const s = data.summary;
-        document.getElementById('portfolio-value').textContent = formatCurrency(s.portfolio_value);
-
+        document.getElementById('portfolio-value').textContent = formatYen(s.portfolio_value);
         const returnEl = document.getElementById('portfolio-return');
         returnEl.textContent = formatPct(s.total_return) + ' since inception';
         setReturnClass(returnEl, s.total_return);
-
         document.getElementById('portfolio-meta').textContent =
-            `Inception: ${data.inception_date} · Last updated: ${data.last_updated} · Starting capital: ${formatCurrency(data.starting_capital)}`;
+            `Inception: ${data.inception_date} · Last updated: ${data.last_updated} · Starting capital: ${formatYen(data.starting_capital)}`;
     }
-
-    // ── Stats ──
 
     function renderStats(data) {
         const s = data.summary;
-
         const ytdEl = document.getElementById('stat-ytd');
         ytdEl.textContent = formatPct(s.ytd_return);
         setReturnClass(ytdEl, s.ytd_return);
 
         const nikkeiReturn = data.benchmarks['Nikkei 225'] ? data.benchmarks['Nikkei 225'].current : null;
-        document.getElementById('stat-ytd-bench').textContent =
-            nikkeiReturn !== null ? `vs. Nikkei 225 ${formatPct(nikkeiReturn)}` : '';
+        document.getElementById('stat-ytd-bench').textContent = nikkeiReturn !== null ? `vs. Nikkei 225 ${formatPct(nikkeiReturn)}` : '';
 
         document.getElementById('stat-sharpe').textContent = s.sharpe_ratio.toFixed(2);
 
@@ -204,42 +188,27 @@
         document.getElementById('stat-positions-breakdown').textContent = `${s.jp_count} JP · ${s.us_count} US`;
 
         document.getElementById('stat-cash-pct').textContent = s.cash_pct.toFixed(1) + '%';
-        document.getElementById('stat-cash-usd').textContent = formatCurrency(s.cash_usd);
+        document.getElementById('stat-cash-usd').textContent = formatYen(s.cash_jpy);
     }
-
-    // ── Holdings Table (sortable, filterable, expandable) ──
 
     function getFilteredAndSortedHoldings(data) {
         let holdings = [...data.holdings];
+        if (currentGeoFilter === 'JP') holdings = holdings.filter(h => h.currency === 'JPY');
+        else if (currentGeoFilter === 'US') holdings = holdings.filter(h => h.currency === 'USD');
 
-        // Filter by geography
-        if (currentGeoFilter === 'JP') {
-            holdings = holdings.filter(h => h.currency === 'JPY');
-        } else if (currentGeoFilter === 'US') {
-            holdings = holdings.filter(h => h.currency === 'USD');
-        }
-
-        // Sort
         const key = currentSort.key;
         const dir = currentSort.direction === 'asc' ? 1 : -1;
-
         holdings.sort((a, b) => {
-            let valA = a[key];
-            let valB = b[key];
-
-            if (typeof valA === 'string') {
-                return dir * valA.localeCompare(valB);
-            }
+            let valA = a[key], valB = b[key];
+            if (typeof valA === 'string') return dir * valA.localeCompare(valB);
             return dir * (valA - valB);
         });
-
         return holdings;
     }
 
     function renderHoldings(data) {
         const tbody = document.getElementById('holdings-body');
         const holdings = getFilteredAndSortedHoldings(data);
-
         document.getElementById('holdings-count').textContent = `${holdings.length} positions`;
 
         if (holdings.length === 0) {
@@ -249,10 +218,7 @@
 
         tbody.innerHTML = holdings.map(h => `
             <tr class="holding-row" data-ticker="${h.ticker}">
-                <td>
-                    <div class="ticker">${h.ticker}</div>
-                    <div class="company-name">${h.company_name}</div>
-                </td>
+                <td><div class="ticker">${h.ticker}</div><div class="company-name">${h.company_name}</div></td>
                 <td><span class="tag">${h.sector}</span></td>
                 <td>${h.weight.toFixed(1)}%</td>
                 <td>${h.display_cost}</td>
@@ -263,83 +229,43 @@
                 <td colspan="6">
                     <div class="detail-inner">
                         <div class="detail-grid">
-                            <div class="detail-item">
-                                <div class="detail-label">Shares Held</div>
-                                <div class="detail-value">${h.shares.toLocaleString()}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Market Value (USD)</div>
-                                <div class="detail-value">${formatCurrency(h.value_usd)}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Cost Basis (USD)</div>
-                                <div class="detail-value">${formatCurrency(h.cost_usd)}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">P&L (USD)</div>
-                                <div class="detail-value ${h.return_pct >= 0 ? 'positive-cell' : 'negative-cell'}">${formatCurrency(h.value_usd - h.cost_usd)}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Geography</div>
-                                <div class="detail-value">${h.currency === 'JPY' ? '🇯🇵 Japan' : '🇺🇸 United States'}</div>
-                            </div>
-                            <div class="detail-item">
-                                <div class="detail-label">Currency</div>
-                                <div class="detail-value">${h.currency}</div>
-                            </div>
+                            <div class="detail-item"><div class="detail-label">Shares</div><div class="detail-value">${h.shares.toLocaleString()}</div></div>
+                            <div class="detail-item"><div class="detail-label">Value (¥)</div><div class="detail-value">${formatYen(h.value_jpy)}</div></div>
+                            <div class="detail-item"><div class="detail-label">Cost (¥)</div><div class="detail-value">${formatYen(h.cost_jpy)}</div></div>
+                            <div class="detail-item"><div class="detail-label">P&L (¥)</div><div class="detail-value ${h.return_pct >= 0 ? 'positive-cell' : 'negative-cell'}">${formatYen(h.value_jpy - h.cost_jpy)}</div></div>
+                            <div class="detail-item"><div class="detail-label">Geography</div><div class="detail-value">${h.currency === 'JPY' ? '🇯🇵 Japan' : '🇺🇸 US'}</div></div>
+                            <div class="detail-item"><div class="detail-label">Currency</div><div class="detail-value">${h.currency}</div></div>
                         </div>
                     </div>
                 </td>
             </tr>
         `).join('');
 
-        // Attach click handlers to expandable rows
         document.querySelectorAll('.holding-row').forEach(row => {
             row.addEventListener('click', () => {
                 const ticker = row.dataset.ticker.replace('.', '-');
                 const detail = document.getElementById('detail-' + ticker);
                 const isOpen = detail.classList.contains('open');
-
-                // Close all others
                 document.querySelectorAll('.holding-detail.open').forEach(d => d.classList.remove('open'));
                 document.querySelectorAll('.holding-row.expanded').forEach(r => r.classList.remove('expanded'));
-
-                if (!isOpen) {
-                    detail.classList.add('open');
-                    row.classList.add('expanded');
-                }
+                if (!isOpen) { detail.classList.add('open'); row.classList.add('expanded'); }
             });
         });
     }
-
-    // ── Sorting ──
 
     function initSorting() {
         document.querySelectorAll('th.sortable').forEach(th => {
             th.addEventListener('click', () => {
                 const key = th.dataset.sort;
-
-                if (currentSort.key === key) {
-                    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-                } else {
-                    currentSort.key = key;
-                    currentSort.direction = 'desc';
-                }
-
-                // Update header arrows
-                document.querySelectorAll('th.sortable').forEach(header => {
-                    header.classList.remove('sorted-asc', 'sorted-desc');
-                    header.querySelector('.sort-arrow').textContent = '';
-                });
+                if (currentSort.key === key) currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+                else { currentSort.key = key; currentSort.direction = 'desc'; }
+                document.querySelectorAll('th.sortable').forEach(h => { h.classList.remove('sorted-asc','sorted-desc'); h.querySelector('.sort-arrow').textContent = ''; });
                 th.classList.add(currentSort.direction === 'asc' ? 'sorted-asc' : 'sorted-desc');
                 th.querySelector('.sort-arrow').textContent = currentSort.direction === 'asc' ? '↑' : '↓';
-
                 if (portfolioData) renderHoldings(portfolioData);
             });
         });
     }
-
-    // ── Geography Filters ──
 
     function initGeoFilters() {
         document.querySelectorAll('.filter-btn[data-geo]').forEach(btn => {
@@ -352,45 +278,23 @@
         });
     }
 
-    // ── Allocations ──
-
     function renderAllocations(data) {
-        const alloc = data.allocations;
-        document.getElementById('geo-allocation').innerHTML = renderBarGroups(alloc.geography);
-        document.getElementById('sector-allocation').innerHTML = renderBarGroups(alloc.sector);
+        document.getElementById('geo-allocation').innerHTML = renderBarGroups(data.allocations.geography);
+        document.getElementById('sector-allocation').innerHTML = renderBarGroups(data.allocations.sector);
     }
 
     function renderBarGroups(items) {
         const entries = Object.entries(items);
         return entries.map(([label, value], i) => {
-            const opacity = label === 'Cash'
-                ? 'background:var(--text-tertiary); opacity:0.3'
-                : `opacity:${Math.max(0.35, 1 - (i * 0.15))}`;
-
-            return `
-                <div class="alloc-bar-group">
-                    <div class="alloc-bar-label">
-                        <span>${label}</span>
-                        <span>${value.toFixed(1)}%</span>
-                    </div>
-                    <div class="alloc-bar-track">
-                        <div class="alloc-bar-fill" style="width:${value}%; ${opacity}"></div>
-                    </div>
-                </div>
-            `;
+            const opacity = label === 'Cash' ? 'background:var(--text-tertiary); opacity:0.3' : `opacity:${Math.max(0.35, 1 - (i * 0.15))}`;
+            return `<div class="alloc-bar-group"><div class="alloc-bar-label"><span>${label}</span><span>${value.toFixed(1)}%</span></div><div class="alloc-bar-track"><div class="alloc-bar-fill" style="width:${value}%; ${opacity}"></div></div></div>`;
         }).join('');
     }
 
-    // ── Chart ──
-
     function renderChart(data, range = 'all') {
         const chart = data.chart;
-        const dates = chart.dates;
-        const portfolio = chart.portfolio;
-        const nikkei = chart['Nikkei 225'] || [];
-        const sp500 = chart['S&P 500'] || [];
+        const dates = chart.dates, portfolio = chart.portfolio, nikkei = chart['Nikkei 225'] || [], sp500 = chart['S&P 500'] || [];
 
-        // Filter by range
         let startIdx = 0;
         if (range !== 'all' && dates.length > 0) {
             const endDate = new Date(dates[dates.length - 1]);
@@ -405,130 +309,51 @@
             if (startIdx < 0) startIdx = 0;
         }
 
-        const slicedDates = dates.slice(startIdx);
-        const slicedPortfolio = portfolio.slice(startIdx);
-        const slicedNikkei = nikkei.slice(startIdx);
-        const slicedSP = sp500.slice(startIdx);
+        const sd = dates.slice(startIdx), sp = portfolio.slice(startIdx), sn = nikkei.slice(startIdx), ss = sp500.slice(startIdx);
+        const baseP = sp[0]||0, baseN = sn[0]||0, baseS = ss[0]||0;
+        const rp = sp.map(v => +(v-baseP).toFixed(2)), rn = sn.map(v => +(v-baseN).toFixed(2)), rs = ss.map(v => +(v-baseS).toFixed(2));
 
-        // Rebase to start at 0 for the selected range
-        const baseP = slicedPortfolio[0] || 0;
-        const baseN = slicedNikkei[0] || 0;
-        const baseS = slicedSP[0] || 0;
+        const labels = sd.map(d => new Date(d).toLocaleDateString('en-US',{month:'short',day:'numeric'}));
+        const step = Math.max(1, Math.floor(labels.length/10));
+        const cleanLabels = labels.map((l,i) => i%step===0 ? l : '');
 
-        const rebasedPortfolio = slicedPortfolio.map(v => +(v - baseP).toFixed(2));
-        const rebasedNikkei = slicedNikkei.map(v => +(v - baseN).toFixed(2));
-        const rebasedSP = slicedSP.map(v => +(v - baseS).toFixed(2));
-
-        const labels = slicedDates.map(d => {
-            const date = new Date(d);
-            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-        });
-
-        // Thin out labels for readability
-        const step = Math.max(1, Math.floor(labels.length / 10));
-        const cleanLabels = labels.map((l, i) => i % step === 0 ? l : '');
+        // Adapt colors for dark mode
+        const isDark = document.body.classList.contains('dark');
+        const gridColor = isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)';
+        const tickColor = isDark ? '#686868' : '#9B9B9B';
+        const tooltipBg = isDark ? '#E8E8E6' : '#1A1A1A';
+        const tooltipText = isDark ? '#1A1A1A' : '#FFFFFF';
+        const accentColor = isDark ? '#5BA87A' : '#2D5A3D';
+        const accentFill = isDark ? 'rgba(91,168,122,0.06)' : 'rgba(45,90,61,0.04)';
 
         if (chartInstance) chartInstance.destroy();
-
         const ctx = document.getElementById('performanceChart').getContext('2d');
         chartInstance = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: cleanLabels,
                 datasets: [
-                    {
-                        label: 'Portfolio',
-                        data: rebasedPortfolio,
-                        borderColor: '#2D5A3D',
-                        backgroundColor: 'rgba(45,90,61,0.04)',
-                        borderWidth: 2,
-                        fill: true,
-                        tension: 0.3,
-                        pointRadius: 0,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: '#2D5A3D',
-                        pointHoverBorderColor: '#fff',
-                        pointHoverBorderWidth: 2,
-                    },
-                    {
-                        label: 'Nikkei 225',
-                        data: rebasedNikkei,
-                        borderColor: '#C4C4C4',
-                        borderWidth: 1.5,
-                        borderDash: [4, 3],
-                        fill: false,
-                        tension: 0.3,
-                        pointRadius: 0,
-                        pointHoverRadius: 3,
-                    },
-                    {
-                        label: 'S&P 500',
-                        data: rebasedSP,
-                        borderColor: '#D4C4A8',
-                        borderWidth: 1.5,
-                        borderDash: [4, 3],
-                        fill: false,
-                        tension: 0.3,
-                        pointRadius: 0,
-                        pointHoverRadius: 3,
-                    }
+                    { label:'Portfolio', data:rp, borderColor:accentColor, backgroundColor:accentFill, borderWidth:2, fill:true, tension:0.3, pointRadius:0, pointHoverRadius:5, pointHoverBackgroundColor:accentColor, pointHoverBorderColor:isDark?'#1A1A1A':'#fff', pointHoverBorderWidth:2 },
+                    { label:'Nikkei 225', data:rn, borderColor:'#888', borderWidth:1.5, borderDash:[4,3], fill:false, tension:0.3, pointRadius:0, pointHoverRadius:3 },
+                    { label:'S&P 500', data:rs, borderColor:'#C4AA78', borderWidth:1.5, borderDash:[4,3], fill:false, tension:0.3, pointRadius:0, pointHoverRadius:3 }
                 ]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: { mode: 'index', intersect: false },
+                responsive:true, maintainAspectRatio:false,
+                interaction:{mode:'index',intersect:false},
                 plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#1A1A1A',
-                        titleFont: { family: 'DM Sans', size: 11, weight: '400' },
-                        bodyFont: { family: 'DM Sans', size: 11 },
-                        padding: 12,
-                        cornerRadius: 3,
-                        displayColors: true,
-                        boxWidth: 8,
-                        boxHeight: 2,
-                        callbacks: {
-                            title: function(items) {
-                                const idx = items[0].dataIndex;
-                                return slicedDates[idx] ? new Date(slicedDates[idx]).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
-                            },
-                            label: function(context) {
-                                const val = context.parsed.y;
-                                const sign = val >= 0 ? '+' : '';
-                                return ' ' + context.dataset.label + ': ' + sign + val.toFixed(2) + '%';
-                            }
-                        }
+                    legend:{display:false},
+                    tooltip:{ backgroundColor:tooltipBg, titleColor:tooltipText, bodyColor:tooltipText, titleFont:{family:'DM Sans',size:11,weight:'400'}, bodyFont:{family:'DM Sans',size:11}, padding:12, cornerRadius:3, displayColors:true, boxWidth:8, boxHeight:2,
+                        callbacks:{ title:function(items){ const idx=items[0].dataIndex; return sd[idx]?new Date(sd[idx]).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}):''; }, label:function(c){ const v=c.parsed.y; return ' '+c.dataset.label+': '+(v>=0?'+':'')+v.toFixed(2)+'%'; } }
                     }
                 },
                 scales: {
-                    x: {
-                        grid: { display: false },
-                        ticks: {
-                            font: { family: 'DM Sans', size: 10, weight: '400' },
-                            color: '#9B9B9B',
-                            padding: 8,
-                            maxRotation: 0,
-                        },
-                        border: { display: false },
-                    },
-                    y: {
-                        grid: { color: 'rgba(0,0,0,0.04)', drawBorder: false },
-                        ticks: {
-                            font: { family: 'DM Sans', size: 10, weight: '400' },
-                            color: '#9B9B9B',
-                            padding: 12,
-                            callback: function(value) { return (value >= 0 ? '+' : '') + value + '%'; }
-                        },
-                        border: { display: false },
-                    }
+                    x:{ grid:{display:false}, ticks:{font:{family:'DM Sans',size:10,weight:'400'}, color:tickColor, padding:8, maxRotation:0}, border:{display:false} },
+                    y:{ grid:{color:gridColor,drawBorder:false}, ticks:{font:{family:'DM Sans',size:10,weight:'400'}, color:tickColor, padding:12, callback:function(v){return (v>=0?'+':'')+v+'%'}}, border:{display:false} }
                 }
             }
         });
     }
-
-    // ── Time Filters ──
 
     function initTimeFilters() {
         document.querySelectorAll('.time-btn').forEach(btn => {
@@ -540,35 +365,26 @@
         });
     }
 
-    // ── Initialize ──
+    // Re-render chart on dark mode toggle for color adaptation
+    document.getElementById('dark-mode-btn')?.addEventListener('click', () => {
+        setTimeout(() => { if (portfolioData) { const active = document.querySelector('.time-btn.active'); renderChart(portfolioData, active?.dataset.range || '1y'); } }, 50);
+    });
 
     async function init() {
-        initTimeFilters();
-        initSorting();
-        initGeoFilters();
-
+        initTimeFilters(); initSorting(); initGeoFilters();
         try {
             const response = await fetch('data/portfolio.json');
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
             portfolioData = await response.json();
-
-            renderSummary(portfolioData);
-            renderStats(portfolioData);
-            renderHoldings(portfolioData);
-            renderAllocations(portfolioData);
-            renderChart(portfolioData, '1y');
-
+            renderSummary(portfolioData); renderStats(portfolioData); renderHoldings(portfolioData); renderAllocations(portfolioData); renderChart(portfolioData, '1y');
         } catch (error) {
             console.error('Failed to load portfolio data:', error);
             document.getElementById('portfolio-value').textContent = '—';
-            document.getElementById('portfolio-meta').textContent =
-                'Portfolio data unavailable. Run the pipeline to generate data/portfolio.json';
+            document.getElementById('portfolio-meta').textContent = 'Portfolio data unavailable. Run the pipeline to generate data/portfolio.json';
         }
     }
 
     init();
     </script>
-
 </body>
 </html>
