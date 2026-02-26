@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazuki — Trade History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="animate-in">
+        <a href="index.html" class="site-title">Hazuki <span class="jp">シャドウ・ポートフォリオ</span></a>
+        <nav>
+            <a href="index.html">Portfolio</a>
+            <a href="philosophy.html">Philosophy</a>
+            <a href="trades.html" class="active">Trades</a>
+            <a href="research.html">Research</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <hr class="divider">
+
+    <section class="about-page">
+        <h1 class="about-page-title animate-in">Trade History</h1>
+        <p class="about-page-subtitle animate-in delay-1">取引履歴</p>
+
+        <div class="trades-controls animate-in delay-2">
+            <div class="filter-group" id="action-filters">
+                <button class="filter-btn active" data-action="all">All</button>
+                <button class="filter-btn" data-action="BUY">Buys</button>
+                <button class="filter-btn" data-action="SELL">Sells</button>
+            </div>
+            <div class="filter-group" id="currency-filters">
+                <button class="filter-btn active" data-currency="all">All</button>
+                <button class="filter-btn" data-currency="JPY">Japan</button>
+                <button class="filter-btn" data-currency="USD">US</button>
+            </div>
+            <div class="trades-summary" id="trades-summary">Loading...</div>
+        </div>
+
+        <table class="animate-in delay-3">
+            <thead>
+                <tr>
+                    <th class="sortable sorted-desc" data-sort="date">Date <span class="sort-arrow">↓</span></th>
+                    <th>Action</th>
+                    <th class="sortable" data-sort="ticker">Ticker <span class="sort-arrow"></span></th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Value</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody id="trades-body">
+                <tr><td colspan="7" style="text-align:center; color:var(--text-tertiary); padding:2rem;">Loading trade history...</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <div class="footer-left">Shadow portfolio for educational purposes only. Not investment advice.</div>
+        <div class="footer-right">自主運用ポートフォリオ</div>
+    </footer>
+
+    <script>
+    let tradesData = [];
+    let currentActionFilter = 'all';
+    let currentCurrencyFilter = 'all';
+    let currentSort = { key: 'date', direction: 'desc' };
+
+    // ── Load trades from CSV ──
+
+    async function loadTrades() {
+        try {
+            const response = await fetch('data/trades.csv');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const text = await response.text();
+
+            const lines = text.trim().split('\n');
+            const headers = lines[0].split(',');
+
+            tradesData = lines.slice(1).map(line => {
+                // Handle commas in notes field
+                const parts = [];
+                let current = '';
+                let inQuotes = false;
+                for (const char of line) {
+                    if (char === '"') { inQuotes = !inQuotes; continue; }
+                    if (char === ',' && !inQuotes) { parts.push(current); current = ''; continue; }
+                    current += char;
+                }
+                parts.push(current);
+
+                return {
+                    date: parts[0],
+                    ticker: parts[1],
+                    action: parts[2],
+                    shares: parseFloat(parts[3]),
+                    price: parseFloat(parts[4]),
+                    currency: parts[5],
+                    notes: parts[6] || '',
+                };
+            });
+
+            renderTrades();
+
+        } catch (error) {
+            console.error('Failed to load trades:', error);
+            document.getElementById('trades-body').innerHTML =
+                '<tr><td colspan="7" style="text-align:center; color:var(--text-tertiary); padding:2rem;">Trade data unavailable</td></tr>';
+        }
+    }
+
+    // ── Filter & Sort ──
+
+    function getFilteredAndSorted() {
+        let trades = [...tradesData];
+
+        if (currentActionFilter !== 'all') {
+            trades = trades.filter(t => t.action === currentActionFilter);
+        }
+        if (currentCurrencyFilter !== 'all') {
+            trades = trades.filter(t => t.currency === currentCurrencyFilter);
+        }
+
+        const dir = currentSort.direction === 'asc' ? 1 : -1;
+        trades.sort((a, b) => {
+            const valA = a[currentSort.key];
+            const valB = b[currentSort.key];
+            if (typeof valA === 'string') return dir * valA.localeCompare(valB);
+            return dir * (valA - valB);
+        });
+
+        return trades;
+    }
+
+    // ── Render ──
+
+    function renderTrades() {
+        const trades = getFilteredAndSorted();
+        const tbody = document.getElementById('trades-body');
+
+        // Summary
+        const totalBuys = trades.filter(t => t.action === 'BUY').length;
+        const totalSells = trades.filter(t => t.action === 'SELL').length;
+        document.getElementById('trades-summary').textContent =
+            `${trades.length} trades · ${totalBuys} buys · ${totalSells} sells`;
+
+        if (trades.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--text-tertiary); padding:2rem;">No trades match filter</td></tr>';
+            return;
+        }
+
+        tbody.innerHTML = trades.map(t => {
+            const symbol = t.currency === 'JPY' ? '¥' : '$';
+            const totalValue = t.shares * t.price;
+            const formattedPrice = t.currency === 'JPY'
+                ? `¥${t.price.toLocaleString('en-US', { minimumFractionDigits: 0 })}`
+                : `$${t.price.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+            const formattedValue = t.currency === 'JPY'
+                ? `¥${totalValue.toLocaleString('en-US', { minimumFractionDigits: 0 })}`
+                : `$${totalValue.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+
+            const dateFormatted = new Date(t.date).toLocaleDateString('en-US', {
+                month: 'short', day: 'numeric', year: 'numeric'
+            });
+
+            return `
+                <tr>
+                    <td>${dateFormatted}</td>
+                    <td><span class="action-tag ${t.action.toLowerCase()}-tag">${t.action}</span></td>
+                    <td><span class="ticker">${t.ticker}</span></td>
+                    <td>${t.shares.toLocaleString()}</td>
+                    <td>${formattedPrice}</td>
+                    <td>${formattedValue}</td>
+                    <td class="trade-notes">${t.notes}</td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    // ── Event Listeners ──
+
+    document.querySelectorAll('#action-filters .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('#action-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentActionFilter = btn.dataset.action;
+            renderTrades();
+        });
+    });
+
+    document.querySelectorAll('#currency-filters .filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('#currency-filters .filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentCurrencyFilter = btn.dataset.currency;
+            renderTrades();
+        });
+    });
+
+    document.querySelectorAll('th.sortable').forEach(th => {
+        th.addEventListener('click', () => {
+            const key = th.dataset.sort;
+            if (currentSort.key === key) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.key = key;
+                currentSort.direction = 'desc';
+            }
+            document.querySelectorAll('th.sortable').forEach(h => {
+                h.classList.remove('sorted-asc', 'sorted-desc');
+                h.querySelector('.sort-arrow').textContent = '';
+            });
+            th.classList.add(currentSort.direction === 'asc' ? 'sorted-asc' : 'sorted-desc');
+            th.querySelector('.sort-arrow').textContent = currentSort.direction === 'asc' ? '↑' : '↓';
+            renderTrades();
+        });
+    });
+
+    loadTrades();
+    </script>
+
+</body>
+</html>
