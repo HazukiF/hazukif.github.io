@@ -846,6 +846,287 @@ th.sorted-desc .sort-arrow {
 
 
 /* ══════════════════════════════════
+   PHILOSOPHY PAGE (philosophy.html)
+   ══════════════════════════════════ */
+
+.philosophy-intro {
+    max-width: 700px;
+    margin-bottom: 1rem;
+}
+
+.phase-block {
+    margin-bottom: 3rem;
+}
+
+.phase-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.phase-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-tertiary);
+    min-width: 3.5rem;
+    padding-top: 0.2rem;
+}
+
+.phase-title-group {
+    flex: 1;
+}
+
+.phase-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.phase-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+}
+
+.phase-tag {
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-top: 0.3rem;
+}
+
+.machine-tag {
+    background: #EEF2FF;
+    color: #4A5A8A;
+}
+
+.human-tag {
+    background: #FFF8EE;
+    color: #8A6D3B;
+}
+
+.hybrid-tag {
+    background: #F0FAF4;
+    color: #3D7A5A;
+}
+
+.phase-body {
+    padding-left: 4.5rem;
+    max-width: 720px;
+}
+
+.phase-body > p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.phase-process {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.process-step {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+}
+
+.process-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    min-width: 4rem;
+    padding-top: 0.15rem;
+}
+
+.process-desc {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+/* ── Future Grid ── */
+.future-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.future-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 1.5rem;
+}
+
+.future-title {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+}
+
+.future-desc {
+    font-size: 0.78rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+
+/* ══════════════════════════════════
+   TRADES PAGE (trades.html)
+   ══════════════════════════════════ */
+
+.trades-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.trades-summary {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-left: auto;
+}
+
+.action-tag {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+}
+
+.buy-tag {
+    background: var(--green-light);
+    color: var(--green);
+}
+
+.sell-tag {
+    background: var(--red-light);
+    color: var(--red);
+}
+
+.trade-notes {
+    font-size: 0.72rem !important;
+    color: var(--text-tertiary) !important;
+    font-style: italic;
+    max-width: 200px;
+}
+
+
+/* ══════════════════════════════════
+   RESEARCH PAGE (research.html)
+   ══════════════════════════════════ */
+
+.research-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.research-card {
+    display: block;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+}
+
+.research-card:hover {
+    border-color: var(--text-tertiary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.research-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.research-card-tags {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.research-card-date {
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+}
+
+.research-card-ticker {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+}
+
+.research-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+}
+
+.research-card-summary {
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.research-card-download {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+}
+
+.download-icon {
+    display: inline-block;
+    margin-right: 0.2rem;
+}
+
+.research-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+}
+
+
+/* ══════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════ */
 
@@ -890,6 +1171,20 @@ th.sorted-desc .sort-arrow {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.75rem;
     }
+
+    /* Philosophy responsive */
+    .phase-header { flex-wrap: wrap; }
+    .phase-body { padding-left: 0; }
+    .phase-number { min-width: auto; }
+    .process-step { flex-direction: column; gap: 0.25rem; }
+    .future-grid { grid-template-columns: 1fr; }
+
+    /* Trades responsive */
+    .trades-controls { flex-wrap: wrap; }
+
+    /* Research responsive */
+    .research-grid { grid-template-columns: 1fr; }
+    .research-filters { flex-wrap: wrap; }
 
     /* About page responsive */
     .about-page { padding: 2.5rem 1.25rem 3rem; }
