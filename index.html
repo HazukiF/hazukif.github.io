@@ -1,5 +1,952 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazuki — Shadow Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg: #FAFAF8;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6B6B;
+            --text-tertiary: #9B9B9B;
+            --accent: #2D5A3D;
+            --accent-light: #E8F0EB;
+            --red: #B8433E;
+            --red-light: #FCEEED;
+            --green: #2D5A3D;
+            --green-light: #E8F0EB;
+            --border: #EBEBEB;
+            --border-light: #F5F5F3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .jp {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        /* ── Header ── */
+        header {
+            padding: 3rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .site-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: var(--text-primary);
+        }
+
+        .site-title span {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            margin-left: 0.75rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: baseline;
+        }
+
+        nav a {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        nav a.active {
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--text-primary);
+            padding-bottom: 2px;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Hero / Portfolio Summary ── */
+        .portfolio-hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .portfolio-hero-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-label-jp {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            margin-left: 0.5rem;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        .portfolio-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .portfolio-return {
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.3rem 0.75rem;
+            border-radius: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-return.positive {
+            color: var(--green);
+            background: var(--green-light);
+        }
+
+        .portfolio-return.negative {
+            color: var(--red);
+            background: var(--red-light);
+        }
+
+        .portfolio-meta {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-top: 0.75rem;
+        }
+
+        /* ── Stats Row ── */
+        .stats-row {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1px;
+            background: var(--border-light);
+        }
+
+        .stat-card {
+            background: var(--bg);
+            padding: 1.25rem 1.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--text-primary);
+        }
+
+        .stat-value.positive { color: var(--green); }
+        .stat-value.negative { color: var(--red); }
+
+        .stat-sub {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            margin-top: 0.25rem;
+        }
+
+        /* ── Chart Section ── */
+        .chart-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-primary);
+        }
+
+        .chart-title small {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            margin-left: 0.5rem;
+        }
+
+        .time-filters {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .time-btn {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            padding: 0.35rem 0.75rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .time-btn:first-child { border-radius: 3px 0 0 3px; }
+        .time-btn:last-child { border-radius: 0 3px 3px 0; }
+
+        .time-btn.active {
+            background: var(--text-primary);
+            border-color: var(--text-primary);
+            color: white;
+        }
+
+        .time-btn:hover:not(.active) {
+            border-color: var(--text-secondary);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 360px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 2px;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            padding-left: 0.25rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 2px;
+            border-radius: 1px;
+        }
+
+        /* ── Holdings Table ── */
+        .holdings-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem 3rem;
+        }
+
+        .holdings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1.25rem;
+        }
+
+        .holdings-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+
+        .holdings-title small {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            margin-left: 0.5rem;
+        }
+
+        .holdings-count {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        thead th {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            padding: 0.9rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        thead th:nth-child(n+3) {
+            text-align: right;
+        }
+
+        tbody td {
+            font-size: 0.82rem;
+            padding: 0.9rem 1.25rem;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-primary);
+        }
+
+        tbody td:nth-child(n+3) {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #FDFDFB;
+        }
+
+        .ticker {
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .company-name {
+            font-size: 0.72rem;
+            color: var(--text-tertiary);
+        }
+
+        .tag {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.5rem;
+            border-radius: 2px;
+            background: var(--border-light);
+            color: var(--text-secondary);
+        }
+
+        .positive-cell { color: var(--green); }
+        .negative-cell { color: var(--red); }
+
+        /* ── Allocation ── */
+        .allocation-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .allocation-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            padding: 1.5rem;
+        }
+
+        .allocation-card-title {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 1.25rem;
+        }
+
+        .alloc-bar-group {
+            margin-bottom: 0.9rem;
+        }
+
+        .alloc-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .alloc-bar-label span:first-child {
+            color: var(--text-primary);
+        }
+
+        .alloc-bar-label span:last-child {
+            color: var(--text-secondary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .alloc-bar-track {
+            height: 4px;
+            background: var(--border-light);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .alloc-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: width 0.6s ease;
+        }
+
+        /* ── Footer ── */
+        footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            line-height: 1.6;
+        }
+
+        .footer-right {
+            font-size: 0.65rem;
+            color: var(--text-tertiary);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        /* ── Animations ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in {
+            animation: fadeUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem 1.25rem 1.5rem;
+            }
+
+            nav { gap: 1.25rem; }
+
+            .portfolio-hero { padding: 2rem 1.25rem; }
+
+            .portfolio-value { font-size: 2.5rem; }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 1rem 1.25rem;
+            }
+
+            .chart-section,
+            .holdings-section {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+
+            .chart-header { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+
+            .chart-container { height: 260px; padding: 1rem; }
+
+            .allocation-grid {
+                grid-template-columns: 1fr;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+
+            table { font-size: 0.75rem; }
+            thead th, tbody td { padding: 0.7rem 0.75rem; }
+
+            footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+                padding: 1.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
 <body>
-<h1>Hello</h1>
+
+    <!-- Header -->
+    <header class="animate-in">
+        <div class="site-title">Hazuki <span class="jp">シャドウ・ポートフォリオ</span></div>
+        <nav>
+            <a href="#" class="active">Portfolio</a>
+            <a href="#">Theses</a>
+            <a href="#">Models</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <hr class="divider">
+
+    <!-- Portfolio Summary -->
+    <section class="portfolio-hero animate-in delay-1">
+        <div class="portfolio-label">Portfolio Value <span class="portfolio-label-jp">運用総額</span></div>
+        <div class="portfolio-hero-inner">
+            <div class="portfolio-value">$104,832</div>
+            <div class="portfolio-return positive">+4.83% since inception</div>
+        </div>
+        <div class="portfolio-meta">Inception: Feb 25, 2025 · Last updated: Feb 25, 2026 · Starting capital: $100,000</div>
+    </section>
+
+    <!-- Key Stats -->
+    <div class="stats-row animate-in delay-2">
+        <div class="stat-card">
+            <div class="stat-label">YTD Return</div>
+            <div class="stat-value positive">+3.21%</div>
+            <div class="stat-sub">vs. Nikkei 225 +1.87%</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Sharpe Ratio</div>
+            <div class="stat-value">0.94</div>
+            <div class="stat-sub">Annualized</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Max Drawdown</div>
+            <div class="stat-value negative">-6.12%</div>
+            <div class="stat-sub">Apr 2025</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Positions</div>
+            <div class="stat-value">12</div>
+            <div class="stat-sub">8 JP · 4 US</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Cash</div>
+            <div class="stat-value">18.4%</div>
+            <div class="stat-sub">$19,290</div>
+        </div>
+    </div>
+
+    <!-- Performance Chart -->
+    <section class="chart-section animate-in delay-3">
+        <div class="chart-header">
+            <div class="chart-title">Cumulative Return <small>累積リターン</small></div>
+            <div class="time-filters">
+                <button class="time-btn" data-range="1m">1M</button>
+                <button class="time-btn" data-range="3m">3M</button>
+                <button class="time-btn" data-range="6m">6M</button>
+                <button class="time-btn active" data-range="1y">1Y</button>
+                <button class="time-btn" data-range="all">ALL</button>
+            </div>
+        </div>
+        <div class="chart-container">
+            <canvas id="performanceChart"></canvas>
+        </div>
+        <div class="chart-legend">
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #2D5A3D;"></div>
+                Portfolio
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #C4C4C4;"></div>
+                Nikkei 225
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot" style="background: #D4C4A8;"></div>
+                S&P 500
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Holdings Table -->
+    <section class="holdings-section animate-in delay-4">
+        <div class="holdings-header">
+            <div class="holdings-title">Current Holdings <small>保有銘柄</small></div>
+            <div class="holdings-count">12 positions</div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Sector</th>
+                    <th>Weight</th>
+                    <th>Avg Cost</th>
+                    <th>Current</th>
+                    <th>Return</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="ticker">6501.T</div>
+                        <div class="company-name">Hitachi, Ltd.</div>
+                    </td>
+                    <td><span class="tag">Industrials</span></td>
+                    <td>12.4%</td>
+                    <td>¥3,180</td>
+                    <td>¥3,540</td>
+                    <td class="positive-cell">+11.3%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">8306.T</div>
+                        <div class="company-name">Mitsubishi UFJ Financial</div>
+                    </td>
+                    <td><span class="tag">Financials</span></td>
+                    <td>10.8%</td>
+                    <td>¥1,245</td>
+                    <td>¥1,380</td>
+                    <td class="positive-cell">+10.8%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">6758.T</div>
+                        <div class="company-name">Sony Group Corp.</div>
+                    </td>
+                    <td><span class="tag">Technology</span></td>
+                    <td>9.6%</td>
+                    <td>¥13,200</td>
+                    <td>¥12,850</td>
+                    <td class="negative-cell">-2.7%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">AAPL</div>
+                        <div class="company-name">Apple Inc.</div>
+                    </td>
+                    <td><span class="tag">Technology</span></td>
+                    <td>8.2%</td>
+                    <td>$178.30</td>
+                    <td>$191.50</td>
+                    <td class="positive-cell">+7.4%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">7203.T</div>
+                        <div class="company-name">Toyota Motor Corp.</div>
+                    </td>
+                    <td><span class="tag">Auto</span></td>
+                    <td>7.9%</td>
+                    <td>¥2,680</td>
+                    <td>¥2,590</td>
+                    <td class="negative-cell">-3.4%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">8035.T</div>
+                        <div class="company-name">Tokyo Electron Ltd.</div>
+                    </td>
+                    <td><span class="tag">Semicon</span></td>
+                    <td>7.5%</td>
+                    <td>¥22,400</td>
+                    <td>¥24,100</td>
+                    <td class="positive-cell">+7.6%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">MSFT</div>
+                        <div class="company-name">Microsoft Corp.</div>
+                    </td>
+                    <td><span class="tag">Technology</span></td>
+                    <td>6.8%</td>
+                    <td>$374.20</td>
+                    <td>$398.60</td>
+                    <td class="positive-cell">+6.5%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">9984.T</div>
+                        <div class="company-name">SoftBank Group</div>
+                    </td>
+                    <td><span class="tag">Technology</span></td>
+                    <td>5.4%</td>
+                    <td>¥8,750</td>
+                    <td>¥8,320</td>
+                    <td class="negative-cell">-4.9%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">4063.T</div>
+                        <div class="company-name">Shin-Etsu Chemical</div>
+                    </td>
+                    <td><span class="tag">Materials</span></td>
+                    <td>5.1%</td>
+                    <td>¥5,080</td>
+                    <td>¥5,340</td>
+                    <td class="positive-cell">+5.1%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">GOOGL</div>
+                        <div class="company-name">Alphabet Inc.</div>
+                    </td>
+                    <td><span class="tag">Technology</span></td>
+                    <td>4.7%</td>
+                    <td>$141.80</td>
+                    <td>$152.30</td>
+                    <td class="positive-cell">+7.4%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">2914.T</div>
+                        <div class="company-name">Japan Tobacco Inc.</div>
+                    </td>
+                    <td><span class="tag">Consumer</span></td>
+                    <td>3.2%</td>
+                    <td>¥4,120</td>
+                    <td>¥4,280</td>
+                    <td class="positive-cell">+3.9%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ticker">V</div>
+                        <div class="company-name">Visa Inc.</div>
+                    </td>
+                    <td><span class="tag">Financials</span></td>
+                    <td>2.0%</td>
+                    <td>$262.40</td>
+                    <td>$271.80</td>
+                    <td class="positive-cell">+3.6%</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Allocation Breakdown -->
+    <section class="allocation-grid">
+        <div class="allocation-card">
+            <div class="allocation-card-title">Geography <span class="jp" style="font-size:0.6rem; font-weight:300; color:var(--text-tertiary);">地域配分</span></div>
+            <div class="alloc-bar-group">
+                <div class="alloc-bar-label"><span>Japan</span><span>61.9%</span></div>
+                <div class="alloc-bar-track"><div class="alloc-bar-fill" style="width:61.9%"></div></div>
+            </div>
+            <div class="alloc-bar-group">
+                <div class="alloc-bar-label"><span>United States</span><span>21.7%</span></div>
+                <div class="alloc-bar-track"><div class="alloc-bar-fill" style="width:21.7%; opacity:0.6"></div></div>
+            </div>
+            <div class="alloc-bar-group">
+                <div class="alloc-bar-label"><span>Cash</span><span>18.4%</span></div>
+                <div class="alloc-bar-track"><div class="alloc-bar-fill" style="width:18.4%; background:var(--text-tertiary); opacity:0.3"></div></div>
+            </div>
+        </div>
+        <div class="allocation-card">
+            <div class="allocation-card-title">Sector <span class="jp" style="font-size:0.6rem; font-weight:300; color:var(--text-tertiary);">セクター配分</span></div>
+            <div class="alloc-bar-group">
+                <div class="alloc-bar-label"><span>Technology</span><span>34.0%</span></div>
+                <div class="alloc-bar-track"><div class="alloc-bar-fill" style="width:34.0%"></div></div>
+            </div>
+            <div class="alloc-bar-group">
+                <div class="alloc-bar-label"><span>Financials</span><span>14.8%</span></div>
+                <div class="alloc-bar-track"><div class="alloc-bar-fill" style="width:14.8%; opacity:0.75"></div></div>
+            </div>
+            <div class="alloc-bar-group">
+                <div class="alloc-bar-label"><span>Industrials</span><span>12.4%</span></div>
+                <div class="alloc-bar-track"><div class="alloc-bar-fill" style="width:12.4%; opacity:0.6"></div></div>
+            </div>
+            <div class="alloc-bar-group">
+                <div class="alloc-bar-label"><span>Other</span><span>20.4%</span></div>
+                <div class="alloc-bar-track"><div class="alloc-bar-fill" style="width:20.4%; opacity:0.45"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-left">
+            Shadow portfolio for educational purposes only. Not investment advice.<br>
+            Data refreshed daily via automated pipeline. Past performance does not indicate future results.
+        </div>
+        <div class="footer-right">自主運用ポートフォリオ</div>
+    </footer>
+
+    <script>
+        // ── Sample performance data ──
+        const months = ['Mar 25', 'Apr 25', 'May 25', 'Jun 25', 'Jul 25', 'Aug 25', 'Sep 25', 'Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26'];
+
+        const portfolioData = [0.8, -1.2, 0.5, 1.8, 2.4, 1.9, 2.8, 3.1, 2.6, 3.5, 4.2, 4.83];
+        const nikkeiData    = [0.5, -2.1, -0.8, 0.3, 1.1, 0.6, 1.4, 1.8, 1.2, 2.0, 1.5, 1.87];
+        const spData        = [1.0, -0.5, 0.9, 2.1, 2.8, 2.3, 3.2, 3.6, 3.1, 3.8, 3.4, 3.62];
+
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [
+                    {
+                        label: 'Portfolio',
+                        data: portfolioData,
+                        borderColor: '#2D5A3D',
+                        backgroundColor: 'rgba(45, 90, 61, 0.04)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        pointHoverRadius: 4,
+                        pointHoverBackgroundColor: '#2D5A3D',
+                    },
+                    {
+                        label: 'Nikkei 225',
+                        data: nikkeiData,
+                        borderColor: '#C4C4C4',
+                        borderWidth: 1.5,
+                        borderDash: [4, 3],
+                        fill: false,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        pointHoverRadius: 3,
+                    },
+                    {
+                        label: 'S&P 500',
+                        data: spData,
+                        borderColor: '#D4C4A8',
+                        borderWidth: 1.5,
+                        borderDash: [4, 3],
+                        fill: false,
+                        tension: 0.3,
+                        pointRadius: 0,
+                        pointHoverRadius: 3,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1A1A1A',
+                        titleFont: { family: 'DM Sans', size: 11, weight: '400' },
+                        bodyFont: { family: 'DM Sans', size: 11 },
+                        padding: 10,
+                        cornerRadius: 2,
+                        displayColors: true,
+                        boxWidth: 8,
+                        boxHeight: 2,
+                        callbacks: {
+                            label: function(context) {
+                                return ' ' + context.dataset.label + ': ' + context.parsed.y.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            font: { family: 'DM Sans', size: 10, weight: '400' },
+                            color: '#9B9B9B',
+                            padding: 8,
+                        },
+                        border: { display: false },
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(0,0,0,0.04)',
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            font: { family: 'DM Sans', size: 10, weight: '400' },
+                            color: '#9B9B9B',
+                            padding: 12,
+                            callback: function(value) { return value + '%'; }
+                        },
+                        border: { display: false },
+                    }
+                }
+            }
+        });
+
+        // ── Time filter buttons (visual only for now) ──
+        document.querySelectorAll('.time-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+
 </body>
 </html>
