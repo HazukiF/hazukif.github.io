@@ -1,0 +1,38 @@
+name: Update Portfolio Data
+
+on:
+  schedule:
+    # Runs at 6:00 AM UTC every day (1 AM EST / 3 PM JST)
+    # Covers both US and Japan market closes
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # Allows manual trigger from GitHub UI
+  push:
+    paths:
+      - 'data/trades.csv'  # Re-run whenever you add a trade
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run portfolio pipeline
+        run: python scripts/update_portfolio.py
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "Portfolio Bot"
+          git config user.email "bot@noreply.github.com"
+          git add data/portfolio.json
+          git diff --staged --quiet || git commit -m "Update portfolio data $(date +%Y-%m-%d)"
+          git push
