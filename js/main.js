@@ -41,7 +41,7 @@ const translations = {
 
     // ── Trades page ──
     'trades-title': { en: 'Trade History', jp: '取引履歴' },
-    'trades-subtitle': { en: '', jp: '' },
+    'trades-subtitle': { en: '取引履歴', jp: 'Trade History' },
     'th-date': { en: 'Date', jp: '日付' },
     'th-action': { en: 'Action', jp: '売買' },
     'th-shares': { en: 'Shares', jp: '株数' },
@@ -52,10 +52,10 @@ const translations = {
     'filter-sells': { en: 'Sells', jp: '売り' },
 
     // ── Philosophy page ──
-    'philosophy-title': { en: 'The Cyborg Investor', jp: 'サイボーグ投資家' },
-    'philosophy-subtitle': { en: '', jp: '' },
+    'philosophy-title': { en: 'Investment Philosophy', jp: '投資思想' },
+    'philosophy-subtitle': { en: '投資思想', jp: 'Investment Philosophy' },
     'philosophy-intro-1': {
-        en: 'This portfolio operates on a simple premise: neither pure quantitative models nor pure fundamental analysis produce the best risk-adjusted returns in cross-border investing. The strongest edge comes from knowing exactly where the human brain outperforms the machine — and where it doesn\'t.',
+        en: 'This portfolio operates on a simple premise: neither pure quantitative models nor pure fundamental analysis produce the best risk-adjusted returns, especially in cross-border investing. The strongest edge comes from knowing exactly where the human brain outperforms the machine — and where it doesn\'t.',
         jp: 'このポートフォリオは、シンプルな前提に基づいています。純粋な計量モデルでも純粋なファンダメンタル分析でもない——クロスボーダー投資において最良のリスク調整後リターンを生み出すのは、人間の頭脳が機械を上回る領域と、その逆の領域を正確に見極めることです。'
     },
     'philosophy-intro-2': {
@@ -149,8 +149,8 @@ const translations = {
     },
 
     // ── Research page ──
-    'research-title': { en: 'Research', jp: '投資リサーチ' },
-    'research-subtitle': { en: '', jp: '' },
+    'research-title': { en: 'Research', jp: 'リサーチ' },
+    'research-subtitle': { en: 'リサーチ', jp: 'Research' },
     'research-intro': {
         en: 'Investment theses and tear sheets for current and past portfolio positions. Each report details the governance thesis, accounting adjustments, valuation model, and risk assessment that informed the trade.',
         jp: '現在および過去のポートフォリオ・ポジションに関する投資テーゼとティアシート。各レポートは、取引判断の根拠となったガバナンス・テーゼ、会計調整、バリュエーション・モデル、リスク評価を詳述します。'
@@ -159,11 +159,11 @@ const translations = {
     'filter-tearsheets': { en: 'Tear Sheets', jp: 'ティアシート' },
 
     // ── About page ──
-    'about-title': { en: 'Between Two Markets', jp: '二つの市場のあいだで' },
+    'about-title': { en: 'About Me', jp: 'プロフィール' },
     'about-background-label': { en: 'Background', jp: '経歴' },
     'about-bg-1': {
-        en: 'I was born in Japan, raised in Manhattan, and spent my formative years moving between Tokyo and New York. I attended public school in New York through sixth grade, then returned to Tokyo for two years at Nishimachi International School before enrolling at Keio Academy of New York — a Japanese school in Purchase, New York affiliated with Keio University.',
-        jp: '日本で生まれ、マンハッタンで育ち、東京とニューヨークを行き来する中で人格形成期を過ごしました。ニューヨークの公立学校に6年生まで通った後、東京の西町インターナショナルスクールで2年間過ごし、その後慶應義塾ニューヨーク学院（ニューヨーク州パーチェス）に入学しました。'
+        en: 'I was born in Japan, raised in Manhattan, and spent my formative years moving between Tokyo and New York. I attended public school in New York through sixth grade, then returned to Tokyo for two years at Nishimachi International School before enrolling at Keio Academy of New York, a bi-cultural school in Purchase, New York affiliated with Keio University.',
+        jp: '日本で生まれ、マンハッタンで育ち、東京とニューヨークを行き来する中で人格形成期を過ごしました。ニューヨークの公立学校に6年生まで通った後、東京の西町インターナショナルスクールで2年間過ごし、その後慶應義塾ニューヨーク学院に入学しました。'
     },
     'about-bg-2': {
         en: 'This constant movement between two worlds gave me something I didn\'t fully appreciate until later: <strong>the ability to see both markets from the inside</strong>. I think in English but I understand Japanese corporate culture intuitively. I can read a 10-K and an 有価証券報告書 with equal comfort. That dual fluency — linguistic and financial — is the foundation everything else is built on.',
