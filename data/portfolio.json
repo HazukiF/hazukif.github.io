@@ -1,27 +1,27 @@
 {
-  "last_updated": "2026-02-27 07:04",
+  "last_updated": "2026-02-28 06:51",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 155.96,
+  "fx_rate": 156.04,
   "summary": {
-    "portfolio_value": 16764644.0,
-    "total_return": 9.42,
-    "ytd_return": 1.5,
-    "sharpe_ratio": 0.66,
+    "portfolio_value": 16753241.0,
+    "total_return": 9.35,
+    "ytd_return": 1.43,
+    "sharpe_ratio": 0.65,
     "max_drawdown": -7.47,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
     "jp_count": 8,
     "us_count": 4,
-    "cash_jpy": 10833107.0,
-    "cash_pct": 64.6
+    "cash_jpy": 10833108.0,
+    "cash_pct": 64.7
   },
   "benchmarks": {
     "Nikkei 225": {
       "current": 55.75
     },
     "S&P 500": {
-      "current": 18.11
+      "current": 17.59
     }
   },
   "holdings": [
@@ -31,14 +31,14 @@
       "sector": "Technology",
       "shares": 20,
       "avg_cost": 141.8,
-      "current_price": 307.38,
+      "current_price": 311.76,
       "display_cost": "$141.80",
-      "display_current": "$307.38",
+      "display_current": "$311.76",
       "currency": "USD",
-      "cost_jpy": 442294.0,
-      "value_jpy": 958761.0,
-      "return_pct": 116.77,
-      "weight": 5.7
+      "cost_jpy": 442515.0,
+      "value_jpy": 972909.0,
+      "return_pct": 119.86,
+      "weight": 5.8
     },
     {
       "ticker": "8035.T",
@@ -61,14 +61,14 @@
       "sector": "Technology",
       "shares": 15,
       "avg_cost": 178.3,
-      "current_price": 272.95,
+      "current_price": 264.18,
       "display_cost": "$178.30",
-      "display_current": "$272.95",
+      "display_current": "$264.18",
       "currency": "USD",
-      "cost_jpy": 417107.0,
-      "value_jpy": 638527.0,
-      "return_pct": 53.08,
-      "weight": 3.8
+      "cost_jpy": 417316.0,
+      "value_jpy": 618320.0,
+      "return_pct": 48.17,
+      "weight": 3.7
     },
     {
       "ticker": "8306.T",
@@ -101,33 +101,33 @@
       "weight": 3.1
     },
     {
-      "ticker": "MSFT",
-      "company_name": "Microsoft Corporation",
-      "sector": "Technology",
-      "shares": 8,
-      "avg_cost": 374.2,
-      "current_price": 401.72,
-      "display_cost": "$374.20",
-      "display_current": "$401.72",
-      "currency": "USD",
-      "cost_jpy": 466873.0,
-      "value_jpy": 501208.0,
-      "return_pct": 7.35,
-      "weight": 3.0
-    },
-    {
       "ticker": "V",
       "company_name": "Visa Inc.",
       "sector": "Financials",
       "shares": 10,
       "avg_cost": 262.4,
-      "current_price": 316.7,
+      "current_price": 320.14,
       "display_cost": "$262.40",
-      "display_current": "$316.70",
+      "display_current": "$320.14",
       "currency": "USD",
-      "cost_jpy": 409231.0,
-      "value_jpy": 493916.0,
-      "return_pct": 20.69,
+      "cost_jpy": 409436.0,
+      "value_jpy": 499530.0,
+      "return_pct": 22.0,
+      "weight": 3.0
+    },
+    {
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "sector": "Technology",
+      "shares": 8,
+      "avg_cost": 374.2,
+      "current_price": 392.74,
+      "display_cost": "$374.20",
+      "display_current": "$392.74",
+      "currency": "USD",
+      "cost_jpy": 467106.0,
+      "value_jpy": 490249.0,
+      "return_pct": 4.95,
       "weight": 2.9
     },
     {
@@ -209,11 +209,11 @@
   "allocations": {
     "geography": {
       "Japan": 19.9,
-      "United States": 15.5,
-      "Cash": 64.6
+      "United States": 15.4,
+      "Cash": 64.7
     },
     "sector": {
-      "Technology": 14.0,
+      "Technology": 13.9,
       "Financials": 6.5,
       "Semiconductors": 3.9,
       "Industrials": 3.1,
@@ -329,7 +329,7 @@
       9.44,
       8.5,
       8.89,
-      9.52
+      9.45
     ],
     "Nikkei 225": [
       0.0,
@@ -437,7 +437,7 @@
       20.14,
       18.47,
       19.74,
-      19.73
+      19.21
     ]
   }
 }
