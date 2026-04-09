@@ -1,24 +1,24 @@
 {
-  "last_updated": "2026-04-08 07:47",
+  "last_updated": "2026-04-09 07:49",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 158.12,
+  "fx_rate": 158.89,
   "summary": {
-    "portfolio_value": 16572706.0,
-    "total_return": 8.21,
-    "ytd_return": 0.46,
-    "sharpe_ratio": 0.35,
+    "portfolio_value": 16555860.0,
+    "total_return": 8.1,
+    "ytd_return": 0.36,
+    "sharpe_ratio": 0.34,
     "max_drawdown": -7.51,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
     "jp_count": 8,
     "us_count": 4,
-    "cash_jpy": 10833075.0,
+    "cash_jpy": 10833186.0,
     "cash_pct": 65.4
   },
   "benchmarks": {
     "Nikkei 225": {
-      "current": 49.02
+      "current": 47.93
     },
     "S&P 500": {
       "current": 13.11
@@ -35,10 +35,10 @@
       "display_cost": "$141.80",
       "display_current": "$305.46",
       "currency": "USD",
-      "cost_jpy": 448442.0,
-      "value_jpy": 966017.0,
+      "cost_jpy": 450618.0,
+      "value_jpy": 970703.0,
       "return_pct": 115.42,
-      "weight": 5.8
+      "weight": 5.9
     },
     {
       "ticker": "8035.T",
@@ -46,13 +46,13 @@
       "sector": "Semiconductors",
       "shares": 15,
       "avg_cost": 22400.0,
-      "current_price": 42410.0,
+      "current_price": 42190.0,
       "display_cost": "\u00a522,400",
-      "display_current": "\u00a542,410",
+      "display_current": "\u00a542,190",
       "currency": "JPY",
       "cost_jpy": 336000.0,
-      "value_jpy": 636150.0,
-      "return_pct": 89.33,
+      "value_jpy": 632850.0,
+      "return_pct": 88.35,
       "weight": 3.8
     },
     {
@@ -65,8 +65,8 @@
       "display_cost": "$178.30",
       "display_current": "$253.50",
       "currency": "USD",
-      "cost_jpy": 422905.0,
-      "value_jpy": 601270.0,
+      "cost_jpy": 424957.0,
+      "value_jpy": 604187.0,
       "return_pct": 42.18,
       "weight": 3.6
     },
@@ -76,14 +76,14 @@
       "sector": "Financials",
       "shares": 200,
       "avg_cost": 1245.0,
-      "current_price": 2885.0,
+      "current_price": 2842.5,
       "display_cost": "\u00a51,245",
-      "display_current": "\u00a52,885",
+      "display_current": "\u00a52,842",
       "currency": "JPY",
       "cost_jpy": 249000.0,
-      "value_jpy": 577000.0,
-      "return_pct": 131.73,
-      "weight": 3.5
+      "value_jpy": 568500.0,
+      "return_pct": 128.31,
+      "weight": 3.4
     },
     {
       "ticker": "6501.T",
@@ -91,14 +91,14 @@
       "sector": "Industrials",
       "shares": 100,
       "avg_cost": 3180.0,
-      "current_price": 4915.0,
+      "current_price": 4843.0,
       "display_cost": "\u00a53,180",
-      "display_current": "\u00a54,915",
+      "display_current": "\u00a54,843",
       "currency": "JPY",
       "cost_jpy": 318000.0,
-      "value_jpy": 491500.0,
-      "return_pct": 54.56,
-      "weight": 3.0
+      "value_jpy": 484300.0,
+      "return_pct": 52.3,
+      "weight": 2.9
     },
     {
       "ticker": "2914.T",
@@ -106,13 +106,13 @@
       "sector": "Consumer Staples",
       "shares": 80,
       "avg_cost": 4120.0,
-      "current_price": 6081.0,
+      "current_price": 6034.0,
       "display_cost": "\u00a54,120",
-      "display_current": "\u00a56,081",
+      "display_current": "\u00a56,034",
       "currency": "JPY",
       "cost_jpy": 329600.0,
-      "value_jpy": 486480.0,
-      "return_pct": 47.6,
+      "value_jpy": 482720.0,
+      "return_pct": 46.46,
       "weight": 2.9
     },
     {
@@ -125,8 +125,8 @@
       "display_cost": "$262.40",
       "display_current": "$302.55",
       "currency": "USD",
-      "cost_jpy": 414920.0,
-      "value_jpy": 478407.0,
+      "cost_jpy": 416933.0,
+      "value_jpy": 480728.0,
       "return_pct": 15.3,
       "weight": 2.9
     },
@@ -140,10 +140,10 @@
       "display_cost": "$374.20",
       "display_current": "$372.29",
       "currency": "USD",
-      "cost_jpy": 473363.0,
-      "value_jpy": 470947.0,
+      "cost_jpy": 475659.0,
+      "value_jpy": 473231.0,
       "return_pct": -0.51,
-      "weight": 2.8
+      "weight": 2.9
     },
     {
       "ticker": "7203.T",
@@ -151,14 +151,14 @@
       "sector": "Autos",
       "shares": 120,
       "avg_cost": 2680.0,
-      "current_price": 3384.0,
+      "current_price": 3331.0,
       "display_cost": "\u00a52,680",
-      "display_current": "\u00a53,384",
+      "display_current": "\u00a53,331",
       "currency": "JPY",
       "cost_jpy": 321600.0,
-      "value_jpy": 406080.0,
-      "return_pct": 26.27,
-      "weight": 2.5
+      "value_jpy": 399720.0,
+      "return_pct": 24.29,
+      "weight": 2.4
     },
     {
       "ticker": "4063.T",
@@ -166,14 +166,14 @@
       "sector": "Materials",
       "shares": 60,
       "avg_cost": 5080.0,
-      "current_price": 6470.0,
+      "current_price": 6506.0,
       "display_cost": "\u00a55,080",
-      "display_current": "\u00a56,470",
+      "display_current": "\u00a56,506",
       "currency": "JPY",
       "cost_jpy": 304800.0,
-      "value_jpy": 388200.0,
-      "return_pct": 27.36,
-      "weight": 2.3
+      "value_jpy": 390360.0,
+      "return_pct": 28.07,
+      "weight": 2.4
     },
     {
       "ticker": "9984.T",
@@ -181,13 +181,13 @@
       "sector": "Technology",
       "shares": 40,
       "avg_cost": 8750.0,
-      "current_price": 3822.0,
+      "current_price": 3775.0,
       "display_cost": "\u00a58,750",
-      "display_current": "\u00a53,822",
+      "display_current": "\u00a53,775",
       "currency": "JPY",
       "cost_jpy": 350000.0,
-      "value_jpy": 152880.0,
-      "return_pct": -56.32,
+      "value_jpy": 151000.0,
+      "return_pct": -56.86,
       "weight": 0.9
     },
     {
@@ -196,30 +196,30 @@
       "sector": "Technology",
       "shares": 25,
       "avg_cost": 13200.0,
-      "current_price": 3388.0,
+      "current_price": 3375.0,
       "display_cost": "\u00a513,200",
-      "display_current": "\u00a53,388",
+      "display_current": "\u00a53,375",
       "currency": "JPY",
       "cost_jpy": 330000.0,
-      "value_jpy": 84700.0,
-      "return_pct": -74.33,
+      "value_jpy": 84375.0,
+      "return_pct": -74.43,
       "weight": 0.5
     }
   ],
   "allocations": {
     "geography": {
-      "Japan": 19.4,
-      "United States": 15.2,
+      "Japan": 19.3,
+      "United States": 15.3,
       "Cash": 65.4
     },
     "sector": {
-      "Technology": 13.7,
-      "Financials": 6.4,
+      "Technology": 13.8,
+      "Financials": 6.3,
       "Semiconductors": 3.8,
-      "Industrials": 3.0,
+      "Industrials": 2.9,
       "Consumer Staples": 2.9,
-      "Autos": 2.5,
-      "Materials": 2.3
+      "Autos": 2.4,
+      "Materials": 2.4
     }
   },
   "chart": {
@@ -341,7 +341,7 @@
       7.13,
       6.58,
       7.49,
-      8.31
+      8.19
     ],
     "Nikkei 225": [
       0.0,
@@ -401,7 +401,7 @@
       44.69,
       44.69,
       44.02,
-      52.65
+      51.53
     ],
     "S&P 500": [
       0.0,
