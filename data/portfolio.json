@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-04-19 07:41",
+  "last_updated": "2026-04-20 08:22",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 158.58,
+  "fx_rate": 158.93,
   "summary": {
-    "portfolio_value": 16894128.0,
-    "total_return": 10.3,
-    "ytd_return": 2.41,
+    "portfolio_value": 16900249.0,
+    "total_return": 10.34,
+    "ytd_return": 2.45,
     "sharpe_ratio": 0.6,
     "max_drawdown": -7.51,
     "max_drawdown_date": "Apr 2025",
@@ -18,7 +18,7 @@
   },
   "benchmarks": {
     "Nikkei 225": {
-      "current": 54.76
+      "current": 55.88
     },
     "S&P 500": {
       "current": 21.82
@@ -35,8 +35,8 @@
       "display_cost": "$141.80",
       "display_current": "$341.68",
       "currency": "USD",
-      "cost_jpy": 449744.0,
-      "value_jpy": 1083700.0,
+      "cost_jpy": 450740.0,
+      "value_jpy": 1086098.0,
       "return_pct": 140.96,
       "weight": 6.4
     },
@@ -65,8 +65,8 @@
       "display_cost": "$178.30",
       "display_current": "$270.23",
       "currency": "USD",
-      "cost_jpy": 424133.0,
-      "value_jpy": 642812.0,
+      "cost_jpy": 425072.0,
+      "value_jpy": 644235.0,
       "return_pct": 51.56,
       "weight": 3.8
     },
@@ -95,8 +95,8 @@
       "display_cost": "$374.20",
       "display_current": "$422.79",
       "currency": "USD",
-      "cost_jpy": 474737.0,
-      "value_jpy": 536382.0,
+      "cost_jpy": 475788.0,
+      "value_jpy": 537569.0,
       "return_pct": 12.99,
       "weight": 3.2
     },
@@ -125,8 +125,8 @@
       "display_cost": "$262.40",
       "display_current": "$317.02",
       "currency": "USD",
-      "cost_jpy": 416124.0,
-      "value_jpy": 502743.0,
+      "cost_jpy": 417045.0,
+      "value_jpy": 503856.0,
       "return_pct": 20.82,
       "weight": 3.0
     },
@@ -282,7 +282,8 @@
       "2026-03-29",
       "2026-04-05",
       "2026-04-12",
-      "2026-04-19"
+      "2026-04-19",
+      "2026-04-26"
     ],
     "portfolio": [
       0.0,
@@ -343,7 +344,8 @@
       6.58,
       7.49,
       8.71,
-      10.41
+      10.48,
+      10.45
     ],
     "Nikkei 225": [
       0.0,
@@ -404,7 +406,8 @@
       44.69,
       44.02,
       54.32,
-      58.53
+      58.53,
+      59.67
     ],
     "S&P 500": [
       0.0,
@@ -465,6 +468,7 @@
       10.37,
       14.08,
       18.14,
+      23.5,
       23.5
     ]
   }
