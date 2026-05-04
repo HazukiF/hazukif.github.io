@@ -1,13 +1,13 @@
 {
-  "last_updated": "2026-05-03 08:09",
+  "last_updated": "2026-05-04 08:39",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 157.03,
+  "fx_rate": 156.93,
   "summary": {
-    "portfolio_value": 17043162.0,
-    "total_return": 11.29,
-    "ytd_return": 3.34,
-    "sharpe_ratio": 0.69,
+    "portfolio_value": 17041293.0,
+    "total_return": 11.28,
+    "ytd_return": 3.32,
+    "sharpe_ratio": 0.68,
     "max_drawdown": -7.51,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
@@ -35,8 +35,8 @@
       "display_cost": "$141.80",
       "display_current": "$385.69",
       "currency": "USD",
-      "cost_jpy": 445346.0,
-      "value_jpy": 1211321.0,
+      "cost_jpy": 445059.0,
+      "value_jpy": 1210542.0,
       "return_pct": 172.0,
       "weight": 7.1
     },
@@ -65,8 +65,8 @@
       "display_cost": "$178.30",
       "display_current": "$280.14",
       "currency": "USD",
-      "cost_jpy": 419985.0,
-      "value_jpy": 659868.0,
+      "cost_jpy": 419715.0,
+      "value_jpy": 659444.0,
       "return_pct": 57.12,
       "weight": 3.9
     },
@@ -95,8 +95,8 @@
       "display_cost": "$374.20",
       "display_current": "$414.44",
       "currency": "USD",
-      "cost_jpy": 470094.0,
-      "value_jpy": 520646.0,
+      "cost_jpy": 469792.0,
+      "value_jpy": 520311.0,
       "return_pct": 10.75,
       "weight": 3.1
     },
@@ -110,8 +110,8 @@
       "display_cost": "$262.40",
       "display_current": "$328.03",
       "currency": "USD",
-      "cost_jpy": 412055.0,
-      "value_jpy": 515115.0,
+      "cost_jpy": 411790.0,
+      "value_jpy": 514784.0,
       "return_pct": 25.01,
       "weight": 3.0
     },
@@ -209,7 +209,7 @@
   "allocations": {
     "geography": {
       "Japan": 19.4,
-      "United States": 17.1,
+      "United States": 17.0,
       "Cash": 63.6
     },
     "sector": {
@@ -284,7 +284,8 @@
       "2026-04-12",
       "2026-04-19",
       "2026-04-26",
-      "2026-05-03"
+      "2026-05-03",
+      "2026-05-10"
     ],
     "portfolio": [
       0.0,
@@ -347,7 +348,8 @@
       8.72,
       10.49,
       10.73,
-      11.4
+      11.39,
+      11.38
     ],
     "Nikkei 225": [
       0.0,
@@ -410,6 +412,7 @@
       54.32,
       58.53,
       61.89,
+      61.34,
       61.34
     ],
     "S&P 500": [
@@ -473,6 +476,7 @@
       18.14,
       23.5,
       24.17,
+      25.3,
       25.3
     ]
   }
