@@ -1,19 +1,19 @@
 {
-  "last_updated": "2026-06-19 10:51",
+  "last_updated": "2026-06-20 09:30",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 161.29,
+  "fx_rate": 161.27,
   "summary": {
-    "portfolio_value": 17641833.0,
+    "portfolio_value": 17641488.0,
     "total_return": 15.22,
     "ytd_return": 7.0,
-    "sharpe_ratio": 0.96,
+    "sharpe_ratio": 0.95,
     "max_drawdown": -7.52,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
     "jp_count": 8,
     "us_count": 4,
-    "cash_jpy": 10833251.0,
+    "cash_jpy": 10833106.0,
     "cash_pct": 61.4
   },
   "benchmarks": {
@@ -35,8 +35,8 @@
       "display_cost": "$141.80",
       "display_current": "$368.03",
       "currency": "USD",
-      "cost_jpy": 457407.0,
-      "value_jpy": 1187162.0,
+      "cost_jpy": 457376.0,
+      "value_jpy": 1187081.0,
       "return_pct": 159.54,
       "weight": 6.7
     },
@@ -65,8 +65,8 @@
       "display_cost": "$178.30",
       "display_current": "$298.01",
       "currency": "USD",
-      "cost_jpy": 431359.0,
-      "value_jpy": 720973.0,
+      "cost_jpy": 431330.0,
+      "value_jpy": 720923.0,
       "return_pct": 67.14,
       "weight": 4.1
     },
@@ -95,8 +95,8 @@
       "display_cost": "$262.40",
       "display_current": "$327.24",
       "currency": "USD",
-      "cost_jpy": 423214.0,
-      "value_jpy": 527792.0,
+      "cost_jpy": 423186.0,
+      "value_jpy": 527756.0,
       "return_pct": 24.71,
       "weight": 3.0
     },
@@ -110,8 +110,8 @@
       "display_cost": "$374.20",
       "display_current": "$379.40",
       "currency": "USD",
-      "cost_jpy": 482826.0,
-      "value_jpy": 489535.0,
+      "cost_jpy": 482793.0,
+      "value_jpy": 489502.0,
       "return_pct": 1.39,
       "weight": 2.8
     },
