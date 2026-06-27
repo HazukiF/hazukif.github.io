@@ -1,45 +1,30 @@
 {
-  "last_updated": "2026-06-26 09:41",
+  "last_updated": "2026-06-27 08:46",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 161.57,
+  "fx_rate": 161.68,
   "summary": {
-    "portfolio_value": 17348286.0,
-    "total_return": 13.3,
-    "ytd_return": 5.22,
-    "sharpe_ratio": 0.72,
+    "portfolio_value": 17386066.0,
+    "total_return": 13.55,
+    "ytd_return": 5.45,
+    "sharpe_ratio": 0.75,
     "max_drawdown": -7.52,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
     "jp_count": 8,
     "us_count": 4,
     "cash_jpy": 10833106.0,
-    "cash_pct": 62.4
+    "cash_pct": 62.3
   },
   "benchmarks": {
     "Nikkei 225": {
       "current": 83.56
     },
     "S&P 500": {
-      "current": 25.78
+      "current": 25.72
     }
   },
   "holdings": [
-    {
-      "ticker": "GOOGL",
-      "company_name": "Alphabet Inc.",
-      "sector": "Technology",
-      "shares": 20,
-      "avg_cost": 141.8,
-      "current_price": 343.71,
-      "display_cost": "$141.80",
-      "display_current": "$343.71",
-      "currency": "USD",
-      "cost_jpy": 458207.0,
-      "value_jpy": 1110651.0,
-      "return_pct": 142.39,
-      "weight": 6.4
-    },
     {
       "ticker": "8035.T",
       "company_name": "TOKYO ELECTRON",
@@ -56,19 +41,34 @@
       "weight": 6.3
     },
     {
+      "ticker": "GOOGL",
+      "company_name": "Alphabet Inc.",
+      "sector": "Technology",
+      "shares": 20,
+      "avg_cost": 141.8,
+      "current_price": 337.39,
+      "display_cost": "$141.80",
+      "display_current": "$337.39",
+      "currency": "USD",
+      "cost_jpy": 458539.0,
+      "value_jpy": 1091018.0,
+      "return_pct": 137.93,
+      "weight": 6.3
+    },
+    {
       "ticker": "AAPL",
       "company_name": "Apple Inc.",
       "sector": "Technology",
       "shares": 15,
       "avg_cost": 178.3,
-      "current_price": 275.15,
+      "current_price": 283.78,
       "display_cost": "$178.30",
-      "display_current": "$275.15",
+      "display_current": "$283.78",
       "currency": "USD",
-      "cost_jpy": 432114.0,
-      "value_jpy": 666831.0,
-      "return_pct": 54.32,
-      "weight": 3.8
+      "cost_jpy": 432427.0,
+      "value_jpy": 688245.0,
+      "return_pct": 59.16,
+      "weight": 4.0
     },
     {
       "ticker": "8306.T",
@@ -91,13 +91,13 @@
       "sector": "Financials",
       "shares": 10,
       "avg_cost": 262.4,
-      "current_price": 330.52,
+      "current_price": 336.23,
       "display_cost": "$262.40",
-      "display_current": "$330.52",
+      "display_current": "$336.23",
       "currency": "USD",
-      "cost_jpy": 423954.0,
-      "value_jpy": 534015.0,
-      "return_pct": 25.96,
+      "cost_jpy": 424261.0,
+      "value_jpy": 543633.0,
+      "return_pct": 28.14,
       "weight": 3.1
     },
     {
@@ -121,14 +121,14 @@
       "sector": "Technology",
       "shares": 8,
       "avg_cost": 374.2,
-      "current_price": 352.83,
+      "current_price": 372.97,
       "display_cost": "$374.20",
-      "display_current": "$352.83",
+      "display_current": "$372.97",
       "currency": "USD",
-      "cost_jpy": 483670.0,
-      "value_jpy": 456048.0,
-      "return_pct": -5.71,
-      "weight": 2.6
+      "cost_jpy": 484020.0,
+      "value_jpy": 482429.0,
+      "return_pct": -0.33,
+      "weight": 2.8
     },
     {
       "ticker": "6501.T",
@@ -209,12 +209,12 @@
   "allocations": {
     "geography": {
       "Japan": 21.6,
-      "United States": 16.0,
-      "Cash": 62.4
+      "United States": 16.1,
+      "Cash": 62.3
     },
     "sector": {
-      "Technology": 14.8,
-      "Financials": 6.8,
+      "Technology": 14.9,
+      "Financials": 6.9,
       "Semiconductors": 6.3,
       "Consumer Staples": 2.8,
       "Industrials": 2.6,
@@ -363,7 +363,7 @@
       14.48,
       13.87,
       15.32,
-      13.41
+      13.65
     ],
     "Nikkei 225": [
       0.0,
@@ -505,7 +505,7 @@
       27.96,
       28.79,
       29.99,
-      27.51
+      27.45
     ]
   }
 }
