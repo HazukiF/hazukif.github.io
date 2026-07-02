@@ -1,59 +1,59 @@
 {
-  "last_updated": "2026-07-01 10:03",
+  "last_updated": "2026-07-02 09:26",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 162.72,
+  "fx_rate": 161.25,
   "summary": {
-    "portfolio_value": 17588954.0,
-    "total_return": 14.87,
-    "ytd_return": 6.74,
-    "sharpe_ratio": 0.88,
+    "portfolio_value": 17568684.0,
+    "total_return": 14.74,
+    "ytd_return": 6.62,
+    "sharpe_ratio": 0.86,
     "max_drawdown": -7.52,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
     "jp_count": 8,
     "us_count": 4,
-    "cash_jpy": 10833070.0,
-    "cash_pct": 61.6
+    "cash_jpy": 10832979.0,
+    "cash_pct": 61.7
   },
   "benchmarks": {
     "Nikkei 225": {
-      "current": 86.51
+      "current": 81.9
     },
     "S&P 500": {
-      "current": 28.2
+      "current": 27.92
     }
   },
   "holdings": [
-    {
-      "ticker": "8035.T",
-      "company_name": "TOKYO ELECTRON",
-      "sector": "Semiconductors",
-      "shares": 15,
-      "avg_cost": 22400.0,
-      "current_price": 78800.0,
-      "display_cost": "\u00a522,400",
-      "display_current": "\u00a578,800",
-      "currency": "JPY",
-      "cost_jpy": 336000.0,
-      "value_jpy": 1182000.0,
-      "return_pct": 251.79,
-      "weight": 6.7
-    },
     {
       "ticker": "GOOGL",
       "company_name": "Alphabet Inc.",
       "sector": "Technology",
       "shares": 20,
       "avg_cost": 141.8,
-      "current_price": 357.37,
+      "current_price": 361.21,
       "display_cost": "$141.80",
-      "display_current": "$357.37",
+      "display_current": "$361.21",
       "currency": "USD",
-      "cost_jpy": 461474.0,
-      "value_jpy": 1163025.0,
-      "return_pct": 152.02,
+      "cost_jpy": 457299.0,
+      "value_jpy": 1164888.0,
+      "return_pct": 154.73,
       "weight": 6.6
+    },
+    {
+      "ticker": "8035.T",
+      "company_name": "TOKYO ELECTRON",
+      "sector": "Semiconductors",
+      "shares": 15,
+      "avg_cost": 22400.0,
+      "current_price": 72940.0,
+      "display_cost": "\u00a522,400",
+      "display_current": "\u00a572,940",
+      "currency": "JPY",
+      "cost_jpy": 336000.0,
+      "value_jpy": 1094100.0,
+      "return_pct": 225.62,
+      "weight": 6.2
     },
     {
       "ticker": "AAPL",
@@ -61,14 +61,14 @@
       "sector": "Technology",
       "shares": 15,
       "avg_cost": 178.3,
-      "current_price": 289.36,
+      "current_price": 294.38,
       "display_cost": "$178.30",
-      "display_current": "$289.36",
+      "display_current": "$294.38",
       "currency": "USD",
-      "cost_jpy": 435195.0,
-      "value_jpy": 706270.0,
-      "return_pct": 62.29,
-      "weight": 4.0
+      "cost_jpy": 431258.0,
+      "value_jpy": 712023.0,
+      "return_pct": 65.1,
+      "weight": 4.1
     },
     {
       "ticker": "8306.T",
@@ -76,14 +76,14 @@
       "sector": "Financials",
       "shares": 200,
       "avg_cost": 1245.0,
-      "current_price": 3247.0,
+      "current_price": 3306.0,
       "display_cost": "\u00a51,245",
-      "display_current": "\u00a53,247",
+      "display_current": "\u00a53,306",
       "currency": "JPY",
       "cost_jpy": 249000.0,
-      "value_jpy": 649400.0,
-      "return_pct": 160.8,
-      "weight": 3.7
+      "value_jpy": 661200.0,
+      "return_pct": 165.54,
+      "weight": 3.8
     },
     {
       "ticker": "V",
@@ -91,13 +91,13 @@
       "sector": "Financials",
       "shares": 10,
       "avg_cost": 262.4,
-      "current_price": 343.09,
+      "current_price": 351.08,
       "display_cost": "$262.40",
-      "display_current": "$343.09",
+      "display_current": "$351.08",
       "currency": "USD",
-      "cost_jpy": 426977.0,
-      "value_jpy": 558276.0,
-      "return_pct": 30.75,
+      "cost_jpy": 423115.0,
+      "value_jpy": 566109.0,
+      "return_pct": 33.8,
       "weight": 3.2
     },
     {
@@ -106,13 +106,13 @@
       "sector": "Technology",
       "shares": 8,
       "avg_cost": 374.2,
-      "current_price": 373.02,
+      "current_price": 384.28,
       "display_cost": "$374.20",
-      "display_current": "$373.02",
+      "display_current": "$384.28",
       "currency": "USD",
-      "cost_jpy": 487119.0,
-      "value_jpy": 485583.0,
-      "return_pct": -0.32,
+      "cost_jpy": 482712.0,
+      "value_jpy": 495715.0,
+      "return_pct": 2.69,
       "weight": 2.8
     },
     {
@@ -121,14 +121,14 @@
       "sector": "Consumer Staples",
       "shares": 80,
       "avg_cost": 4120.0,
-      "current_price": 5975.0,
+      "current_price": 6089.0,
       "display_cost": "\u00a54,120",
-      "display_current": "\u00a55,975",
+      "display_current": "\u00a56,089",
       "currency": "JPY",
       "cost_jpy": 329600.0,
-      "value_jpy": 478000.0,
-      "return_pct": 45.02,
-      "weight": 2.7
+      "value_jpy": 487120.0,
+      "return_pct": 47.79,
+      "weight": 2.8
     },
     {
       "ticker": "6501.T",
@@ -136,14 +136,14 @@
       "sector": "Industrials",
       "shares": 100,
       "avg_cost": 3180.0,
-      "current_price": 4496.0,
+      "current_price": 4669.0,
       "display_cost": "\u00a53,180",
-      "display_current": "\u00a54,496",
+      "display_current": "\u00a54,669",
       "currency": "JPY",
       "cost_jpy": 318000.0,
-      "value_jpy": 449600.0,
-      "return_pct": 41.38,
-      "weight": 2.6
+      "value_jpy": 466900.0,
+      "return_pct": 46.82,
+      "weight": 2.7
     },
     {
       "ticker": "4063.T",
@@ -151,14 +151,14 @@
       "sector": "Materials",
       "shares": 60,
       "avg_cost": 5080.0,
-      "current_price": 7259.0,
+      "current_price": 7024.0,
       "display_cost": "\u00a55,080",
-      "display_current": "\u00a57,259",
+      "display_current": "\u00a57,024",
       "currency": "JPY",
       "cost_jpy": 304800.0,
-      "value_jpy": 435540.0,
-      "return_pct": 42.89,
-      "weight": 2.5
+      "value_jpy": 421440.0,
+      "return_pct": 38.27,
+      "weight": 2.4
     },
     {
       "ticker": "7203.T",
@@ -166,13 +166,13 @@
       "sector": "Autos",
       "shares": 120,
       "avg_cost": 2680.0,
-      "current_price": 2724.5,
+      "current_price": 2793.0,
       "display_cost": "\u00a52,680",
-      "display_current": "\u00a52,724",
+      "display_current": "\u00a52,793",
       "currency": "JPY",
       "cost_jpy": 321600.0,
-      "value_jpy": 326940.0,
-      "return_pct": 1.66,
+      "value_jpy": 335160.0,
+      "return_pct": 4.22,
       "weight": 1.9
     },
     {
@@ -181,13 +181,13 @@
       "sector": "Technology",
       "shares": 40,
       "avg_cost": 8750.0,
-      "current_price": 6000.0,
+      "current_price": 6195.0,
       "display_cost": "\u00a58,750",
-      "display_current": "\u00a56,000",
+      "display_current": "\u00a56,195",
       "currency": "JPY",
       "cost_jpy": 350000.0,
-      "value_jpy": 240000.0,
-      "return_pct": -31.43,
+      "value_jpy": 247800.0,
+      "return_pct": -29.2,
       "weight": 1.4
     },
     {
@@ -196,29 +196,29 @@
       "sector": "Technology",
       "shares": 25,
       "avg_cost": 13200.0,
-      "current_price": 3250.0,
+      "current_price": 3330.0,
       "display_cost": "\u00a513,200",
-      "display_current": "\u00a53,250",
+      "display_current": "\u00a53,330",
       "currency": "JPY",
       "cost_jpy": 330000.0,
-      "value_jpy": 81250.0,
-      "return_pct": -75.38,
+      "value_jpy": 83250.0,
+      "return_pct": -74.77,
       "weight": 0.5
     }
   ],
   "allocations": {
     "geography": {
-      "Japan": 21.8,
-      "United States": 16.6,
-      "Cash": 61.6
+      "Japan": 21.6,
+      "United States": 16.7,
+      "Cash": 61.7
     },
     "sector": {
-      "Technology": 15.2,
-      "Financials": 6.9,
-      "Semiconductors": 6.7,
-      "Consumer Staples": 2.7,
-      "Industrials": 2.6,
-      "Materials": 2.5,
+      "Technology": 15.4,
+      "Financials": 7.0,
+      "Semiconductors": 6.2,
+      "Consumer Staples": 2.8,
+      "Industrials": 2.7,
+      "Materials": 2.4,
       "Autos": 1.9
     }
   },
@@ -365,7 +365,7 @@
       13.8,
       15.26,
       13.6,
-      14.98
+      14.85
     ],
     "Nikkei 225": [
       0.0,
@@ -437,7 +437,7 @@
       78.98,
       93.16,
       88.04,
-      91.06
+      86.33
     ],
     "S&P 500": [
       0.0,
@@ -509,7 +509,7 @@
       28.79,
       29.99,
       27.45,
-      29.97
+      29.69
     ]
   }
 }
