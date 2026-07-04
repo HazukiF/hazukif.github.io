@@ -1,19 +1,19 @@
 {
-  "last_updated": "2026-07-03 09:29",
+  "last_updated": "2026-07-04 08:47",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 161.04,
+  "fx_rate": 161.34,
   "summary": {
-    "portfolio_value": 17621478.0,
-    "total_return": 15.09,
-    "ytd_return": 6.94,
+    "portfolio_value": 17626957.0,
+    "total_return": 15.12,
+    "ytd_return": 6.97,
     "sharpe_ratio": 0.89,
     "max_drawdown": -7.52,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
     "jp_count": 8,
     "us_count": 4,
-    "cash_jpy": 10833106.0,
+    "cash_jpy": 10833105.0,
     "cash_pct": 61.5
   },
   "benchmarks": {
@@ -35,8 +35,8 @@
       "display_cost": "$141.80",
       "display_current": "$359.91",
       "currency": "USD",
-      "cost_jpy": 456715.0,
-      "value_jpy": 1159213.0,
+      "cost_jpy": 457552.0,
+      "value_jpy": 1161336.0,
       "return_pct": 153.82,
       "weight": 6.6
     },
@@ -65,8 +65,8 @@
       "display_cost": "$178.30",
       "display_current": "$308.63",
       "currency": "USD",
-      "cost_jpy": 430707.0,
-      "value_jpy": 745536.0,
+      "cost_jpy": 431496.0,
+      "value_jpy": 746902.0,
       "return_pct": 73.1,
       "weight": 4.2
     },
@@ -95,8 +95,8 @@
       "display_cost": "$262.40",
       "display_current": "$362.13",
       "currency": "USD",
-      "cost_jpy": 422574.0,
-      "value_jpy": 583181.0,
+      "cost_jpy": 423348.0,
+      "value_jpy": 584250.0,
       "return_pct": 38.01,
       "weight": 3.3
     },
@@ -110,8 +110,8 @@
       "display_cost": "$374.20",
       "display_current": "$390.49",
       "currency": "USD",
-      "cost_jpy": 482095.0,
-      "value_jpy": 503082.0,
+      "cost_jpy": 482978.0,
+      "value_jpy": 504004.0,
       "return_pct": 4.35,
       "weight": 2.9
     },
@@ -213,7 +213,7 @@
       "Cash": 61.5
     },
     "sector": {
-      "Technology": 15.5,
+      "Technology": 15.6,
       "Financials": 7.1,
       "Semiconductors": 6.2,
       "Consumer Staples": 2.7,
@@ -365,7 +365,7 @@
       13.8,
       15.26,
       13.6,
-      15.19
+      15.23
     ],
     "Nikkei 225": [
       0.0,
