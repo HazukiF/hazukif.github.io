@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-18 08:03",
+  "last_updated": "2026-07-19 08:28",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
   "fx_rate": 162.35,
@@ -87,7 +87,7 @@
     },
     {
       "ticker": "V",
-      "company_name": "Visa Inc.",
+      "company_name": "V",
       "sector": "Financials",
       "shares": 10,
       "avg_cost": 262.4,
