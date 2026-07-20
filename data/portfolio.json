@@ -1,13 +1,13 @@
 {
-  "last_updated": "2026-07-19 08:28",
+  "last_updated": "2026-07-20 09:28",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 162.35,
+  "fx_rate": 162.39,
   "summary": {
-    "portfolio_value": 17597110.0,
+    "portfolio_value": 17597764.0,
     "total_return": 14.93,
     "ytd_return": 6.79,
-    "sharpe_ratio": 0.82,
+    "sharpe_ratio": 0.81,
     "max_drawdown": -7.52,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
@@ -35,8 +35,8 @@
       "display_cost": "$141.80",
       "display_current": "$346.77",
       "currency": "USD",
-      "cost_jpy": 460433.0,
-      "value_jpy": 1125983.0,
+      "cost_jpy": 460532.0,
+      "value_jpy": 1126226.0,
       "return_pct": 144.55,
       "weight": 6.4
     },
@@ -65,8 +65,8 @@
       "display_cost": "$178.30",
       "display_current": "$333.74",
       "currency": "USD",
-      "cost_jpy": 434213.0,
-      "value_jpy": 812755.0,
+      "cost_jpy": 434307.0,
+      "value_jpy": 812931.0,
       "return_pct": 87.18,
       "weight": 4.6
     },
@@ -87,7 +87,7 @@
     },
     {
       "ticker": "V",
-      "company_name": "V",
+      "company_name": "Visa Inc.",
       "sector": "Financials",
       "shares": 10,
       "avg_cost": 262.4,
@@ -95,8 +95,8 @@
       "display_cost": "$262.40",
       "display_current": "$358.56",
       "currency": "USD",
-      "cost_jpy": 426014.0,
-      "value_jpy": 582133.0,
+      "cost_jpy": 426106.0,
+      "value_jpy": 582258.0,
       "return_pct": 36.65,
       "weight": 3.3
     },
@@ -110,8 +110,8 @@
       "display_cost": "$374.20",
       "display_current": "$393.82",
       "currency": "USD",
-      "cost_jpy": 486020.0,
-      "value_jpy": 511503.0,
+      "cost_jpy": 486125.0,
+      "value_jpy": 511613.0,
       "return_pct": 5.24,
       "weight": 2.9
     },
@@ -295,7 +295,8 @@
       "2026-06-28",
       "2026-07-05",
       "2026-07-12",
-      "2026-07-19"
+      "2026-07-19",
+      "2026-07-26"
     ],
     "portfolio": [
       0.0,
@@ -369,7 +370,8 @@
       13.6,
       15.24,
       15.64,
-      15.03
+      15.03,
+      15.04
     ],
     "Nikkei 225": [
       0.0,
@@ -443,6 +445,7 @@
       88.04,
       89.07,
       85.86,
+      73.88,
       73.88
     ],
     "S&P 500": [
@@ -517,6 +520,7 @@
       27.45,
       29.69,
       31.28,
+      29.24,
       29.24
     ]
   }
