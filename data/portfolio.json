@@ -1,19 +1,19 @@
 {
-  "last_updated": "2026-08-26 06:59",
+  "last_updated": "2026-08-27 17:33",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 159.05,
+  "fx_rate": 159.31,
   "summary": {
-    "portfolio_value": 17580228.0,
-    "total_return": 14.82,
-    "ytd_return": 6.71,
+    "portfolio_value": 17591134.0,
+    "total_return": 14.89,
+    "ytd_return": 6.78,
     "sharpe_ratio": 0.7,
     "max_drawdown": -7.52,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
     "jp_count": 8,
     "us_count": 4,
-    "cash_jpy": 10833106.0,
+    "cash_jpy": 10833067.0,
     "cash_pct": 61.6
   },
   "benchmarks": {
@@ -21,7 +21,7 @@
       "current": 75.36
     },
     "S&P 500": {
-      "current": 31.24
+      "current": 32.27
     }
   },
   "holdings": [
@@ -31,14 +31,14 @@
       "sector": "Technology",
       "shares": 20,
       "avg_cost": 141.8,
-      "current_price": 346.96,
+      "current_price": 341.23,
       "display_cost": "$141.80",
-      "display_current": "$346.96",
+      "display_current": "$341.23",
       "currency": "USD",
-      "cost_jpy": 451057.0,
-      "value_jpy": 1103659.0,
-      "return_pct": 144.68,
-      "weight": 6.3
+      "cost_jpy": 451812.0,
+      "value_jpy": 1087263.0,
+      "return_pct": 140.65,
+      "weight": 6.2
     },
     {
       "ticker": "8035.T",
@@ -61,14 +61,14 @@
       "sector": "Technology",
       "shares": 15,
       "avg_cost": 178.3,
-      "current_price": 309.9,
+      "current_price": 315.13,
       "display_cost": "$178.30",
-      "display_current": "$309.90",
+      "display_current": "$315.13",
       "currency": "USD",
-      "cost_jpy": 425371.0,
-      "value_jpy": 739330.0,
-      "return_pct": 73.81,
-      "weight": 4.2
+      "cost_jpy": 426083.0,
+      "value_jpy": 753065.0,
+      "return_pct": 76.74,
+      "weight": 4.3
     },
     {
       "ticker": "8306.T",
@@ -91,14 +91,14 @@
       "sector": "Technology",
       "shares": 8,
       "avg_cost": 374.2,
-      "current_price": 491.71,
+      "current_price": 504.58,
       "display_cost": "$374.20",
-      "display_current": "$491.71",
+      "display_current": "$504.58",
       "currency": "USD",
-      "cost_jpy": 476123.0,
-      "value_jpy": 625640.0,
-      "return_pct": 31.4,
-      "weight": 3.6
+      "cost_jpy": 476919.0,
+      "value_jpy": 643083.0,
+      "return_pct": 34.84,
+      "weight": 3.7
     },
     {
       "ticker": "V",
@@ -106,13 +106,13 @@
       "sector": "Financials",
       "shares": 10,
       "avg_cost": 262.4,
-      "current_price": 384.14,
+      "current_price": 381.09,
       "display_cost": "$262.40",
-      "display_current": "$384.14",
+      "display_current": "$381.09",
       "currency": "USD",
-      "cost_jpy": 417339.0,
-      "value_jpy": 610963.0,
-      "return_pct": 46.39,
+      "cost_jpy": 418037.0,
+      "value_jpy": 607126.0,
+      "return_pct": 45.23,
       "weight": 3.5
     },
     {
@@ -208,8 +208,8 @@
   ],
   "allocations": {
     "geography": {
-      "Japan": 20.9,
-      "United States": 17.5,
+      "Japan": 20.8,
+      "United States": 17.6,
       "Cash": 61.6
     },
     "sector": {
@@ -381,7 +381,7 @@
       15.09,
       15.85,
       14.45,
-      14.92
+      15.0
     ],
     "Nikkei 225": [
       0.0,
@@ -541,7 +541,7 @@
       34.44,
       34.93,
       33.0,
-      33.05
+      34.1
     ]
   }
 }
