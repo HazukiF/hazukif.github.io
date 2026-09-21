@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-09-20 11:06",
+  "last_updated": "2026-09-21 12:35",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 156.85,
+  "fx_rate": 157.33,
   "summary": {
-    "portfolio_value": 17600394.0,
-    "total_return": 14.95,
-    "ytd_return": 6.84,
+    "portfolio_value": 17609795.0,
+    "total_return": 15.01,
+    "ytd_return": 6.9,
     "sharpe_ratio": 0.65,
     "max_drawdown": -7.52,
     "max_drawdown_date": "Apr 2025",
@@ -14,7 +14,7 @@
     "jp_count": 8,
     "us_count": 4,
     "cash_jpy": 10833106.0,
-    "cash_pct": 61.6
+    "cash_pct": 61.5
   },
   "benchmarks": {
     "Nikkei 225": {
@@ -35,8 +35,8 @@
       "display_cost": "$141.80",
       "display_current": "$349.54",
       "currency": "USD",
-      "cost_jpy": 444841.0,
-      "value_jpy": 1096542.0,
+      "cost_jpy": 446196.0,
+      "value_jpy": 1099884.0,
       "return_pct": 146.5,
       "weight": 6.2
     },
@@ -65,8 +65,8 @@
       "display_cost": "$178.30",
       "display_current": "$336.13",
       "currency": "USD",
-      "cost_jpy": 419509.0,
-      "value_jpy": 790855.0,
+      "cost_jpy": 420787.0,
+      "value_jpy": 793265.0,
       "return_pct": 88.52,
       "weight": 4.5
     },
@@ -95,8 +95,8 @@
       "display_cost": "$374.20",
       "display_current": "$493.78",
       "currency": "USD",
-      "cost_jpy": 469561.0,
-      "value_jpy": 619615.0,
+      "cost_jpy": 470992.0,
+      "value_jpy": 621503.0,
       "return_pct": 31.96,
       "weight": 3.5
     },
@@ -110,8 +110,8 @@
       "display_cost": "$262.40",
       "display_current": "$368.29",
       "currency": "USD",
-      "cost_jpy": 411588.0,
-      "value_jpy": 577681.0,
+      "cost_jpy": 412842.0,
+      "value_jpy": 579442.0,
       "return_pct": 40.35,
       "weight": 3.3
     },
@@ -209,8 +209,8 @@
   "allocations": {
     "geography": {
       "Japan": 20.9,
-      "United States": 17.5,
-      "Cash": 61.6
+      "United States": 17.6,
+      "Cash": 61.5
     },
     "sector": {
       "Technology": 16.2,
@@ -304,7 +304,8 @@
       "2026-08-30",
       "2026-09-06",
       "2026-09-13",
-      "2026-09-20"
+      "2026-09-20",
+      "2026-09-27"
     ],
     "portfolio": [
       0.0,
@@ -387,7 +388,8 @@
       15.63,
       14.51,
       14.1,
-      15.06
+      14.96,
+      15.12
     ],
     "Nikkei 225": [
       0.0,
@@ -470,6 +472,7 @@
       80.02,
       76.27,
       73.53,
+      76.26,
       76.26
     ],
     "S&P 500": [
@@ -553,6 +556,7 @@
       33.65,
       33.77,
       32.7,
+      32.59,
       32.59
     ]
   }
