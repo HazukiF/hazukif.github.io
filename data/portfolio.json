@@ -1,19 +1,19 @@
 {
-  "last_updated": "2026-09-22 11:23",
+  "last_updated": "2026-09-23 11:19",
   "inception_date": "2025-03-03",
   "starting_capital": 15000000,
-  "fx_rate": 157.15,
+  "fx_rate": 157.9,
   "summary": {
-    "portfolio_value": 17642553.0,
-    "total_return": 15.23,
-    "ytd_return": 7.09,
+    "portfolio_value": 17657296.0,
+    "total_return": 15.32,
+    "ytd_return": 7.18,
     "sharpe_ratio": 0.67,
     "max_drawdown": -7.52,
     "max_drawdown_date": "Apr 2025",
     "positions_count": 12,
     "jp_count": 8,
     "us_count": 4,
-    "cash_jpy": 10833245.0,
+    "cash_jpy": 10833126.0,
     "cash_pct": 61.4
   },
   "benchmarks": {
@@ -35,8 +35,8 @@
       "display_cost": "$141.80",
       "display_current": "$354.97",
       "currency": "USD",
-      "cost_jpy": 445675.0,
-      "value_jpy": 1115664.0,
+      "cost_jpy": 447793.0,
+      "value_jpy": 1120967.0,
       "return_pct": 150.33,
       "weight": 6.3
     },
@@ -50,8 +50,8 @@
       "display_cost": "$178.30",
       "display_current": "$338.98",
       "currency": "USD",
-      "cost_jpy": 420295.0,
-      "value_jpy": 799056.0,
+      "cost_jpy": 422293.0,
+      "value_jpy": 802854.0,
       "return_pct": 90.12,
       "weight": 4.5
     },
@@ -95,8 +95,8 @@
       "display_cost": "$374.20",
       "display_current": "$501.61",
       "currency": "USD",
-      "cost_jpy": 470441.0,
-      "value_jpy": 630620.0,
+      "cost_jpy": 472677.0,
+      "value_jpy": 633618.0,
       "return_pct": 34.05,
       "weight": 3.6
     },
@@ -110,8 +110,8 @@
       "display_cost": "$262.40",
       "display_current": "$369.95",
       "currency": "USD",
-      "cost_jpy": 412359.0,
-      "value_jpy": 581373.0,
+      "cost_jpy": 414319.0,
+      "value_jpy": 584136.0,
       "return_pct": 40.99,
       "weight": 3.3
     },
@@ -209,7 +209,7 @@
   "allocations": {
     "geography": {
       "Japan": 20.9,
-      "United States": 17.7,
+      "United States": 17.8,
       "Cash": 61.4
     },
     "sector": {
@@ -389,7 +389,7 @@
       14.51,
       14.1,
       14.96,
-      15.33
+      15.43
     ],
     "Nikkei 225": [
       0.0,
